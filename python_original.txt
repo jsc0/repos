@@ -1,0 +1,85 @@
+########## python environments:
+
+-- Text editors: atom, sublime text...
+-- Full IDEs:  PyCharm, Spyder
+-- Notebook:  Jupyter Notebook
+
+##########
+Install: anaconda and sublime
+
+
+
+########## Anaconda navigator:
+
+-- Open Jupyter notebook:  http://localhost:8888
+The first time will ask you for a token, run into a console (cmd, shell, etc):
+
+C:\Users\Trabajo\Desktop\python>jupyter notebook list
+Currently running servers:
+http://localhost:8892/?token=de83e25756e836c223161c91c6dbb1857cd52166bd1c94d5 :: C:\Users\Trabajo
+http://localhost:8888/?token=5ff9753430910a29f02831366e0e2c09d9263072492e49f1 :: C:\Users\Trabajo
+http://localhost:8891/?token=9764c756c2660f0ebdf12941942b704e7cd3f1852f9adf90 :: C:\Users\Trabajo
+http://localhost:8890/?token=91d75a5728d3510039af33563cd65d3c2e9d7c2eaa9005be :: C:\Users\Trabajo
+http://localhost:8889/?token=2a3bea1eac5716cd2131d487b9aaeb0058ccb43dc500f96c :: C:\Users\Trabajo
+
+--- On jupyter notebook, Click on New -- Notebook: Python 3 -- you can run 
+lines in cells, Shift + enter to run it or click the play button 
+
+
+######## Run program, go to the folder and: python nameprogram.py
+
+######## Run one line command, on the command line: python
+print('hello')
+
+quit()
+
+
+https://github.com/Pierian-Data/Complete-Python-3-Bootcamp
+
+
+
+############### Data Types:
+
+Integers       - int   - whole numbers: 3 , 212 , 93
+Floating point - float - numbers with decimal:  23.1 , 23.32 , 7.34
+String         - str   - ordered sequence of characters:  "hello" 'Sammy' "2000"
+List           - list  - ordered sequence of objects: [10,"hello",200.3]
+Dictionaries   - dict  - unordered Key:Values pair: {"mykey":"value","name":"Frankie"}
+Tuples         - tup   - ordered immutable sequence of objects: (10,"hello,200.2")
+Sets  	       - set   - unordered collection of unique objects: {"a","b"}
+Booleans       - bool  - Logical value indicating true or false	
+
+
+############### See data type of a variable, a in this example:
+
+type(a)
+int
+
+-- Change the data type, a in this example:
+
+a = 30.1 --> we change the value of a to a float data type
+type(a)  ---> we ask for the data type of a  
+float    ----> a is now a float
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
