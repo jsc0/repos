@@ -11,7 +11,9 @@ Install: anaconda and sublime
 
 ########## Anaconda navigator:
 
--- Open Jupyter notebook:  http://localhost:8888
+-- Run it on windows:
+
+Open Jupyter notebook:  http://localhost:8888
 The first time will ask you for a token, run into a console (cmd, shell, etc):
 
 C:\Users\Trabajo\Desktop\python>jupyter notebook list
