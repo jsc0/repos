@@ -52,30 +52,113 @@ Sets  	       - set   - unordered collection of unique objects: {"a","b"}
 Booleans       - bool  - Logical value indicating true or false	
 
 
-############### See data type of a variable, a in this example:
+############# Doubts:
+
+--Arithmetics:
+Module (good to know if a number is even or odd)
+
+
+################# Variables:  ##############################
+
+-- Python uses Dynamic Typing: you can reassign variables to different data types
+PROS: You don't have to write the datatype, saving time
+CONTRAS: You can have some bugs because this.
+
+
+---See data type of a variable, 'a' in this example: (in Jupiter notebook)
 
 type(a)
 int
 
--- Change the data type, a in this example:
+-- Change the data type, 'a' in this example:
 
-a = 30.1 --> we change the value of a to a float data type
+a = 30.1 --> we change the value of 'a' to a float data type
 type(a)  ---> we ask for the data type of a  
 float    ----> a is now a float
 
 
+Another example:
+
+Setting the variable:
+money = 10
+type(money)
+int
+
+-- Change the data type, 'money' in this example:
+
+money = 10.5 --> we change the value of 'money' to a float data type
+type(money)  ---> we ask for the data type of a  
+float    ----> a is now a float
 
 
 
+-- On Jupyter notebook:
+
+Restart the kernel ---> if you used a special word, like 'int' 'float' etc, to assign a variable into it.
+Do it on: Kernel -- Restart
+
+This will delete all the variables
 
 
 
+######################### Strings:   Video 014, 015 and 016
+
+*-- Indexing: allows you to grab a single character.
+
+REMEMBER: The positions are going from 0 to the infinite. The first one is 0
+
+mystring = "hello world"
+
+mystring[0]
+'h'
+
+mystring[9]
+'r'
+
+mystring[-1]
+'d' 
+
+mystring[-3]
+'r' 
 
 
+*-- Slicing: let's you to grab a subsection of multiple characters.
+
+REMEMBER: The positions are going from 0 to the infinite. 
+
+mystring[start:stop:step]
+
+mystring = 'abcdefghi'
+
+* Pick all the characters since 'c' til the end: (Start position)
+mystring[2:]
+cdefghi
+
+* Pick the first 3 characters: The Stop possition don't include the character in which you are 'd' in this example: 
+mystring[:3]  
+abc
+
+* Pick from 'C' to 'H' 
+
+mystring[2:-1]
+
+* Reverse the entire string:
+mystring[::-1]
+ihgfedcba
 
 
+*-- Strings properties and Methods:
 
 
+ 
+
+
+-- Scape sentences:  Inside a sentence you can do a change of line \n  or tab \t (4 spaces), etc.
+
+-- len : tell's you how much characters have the string (empty spaces included)
+
+len("hello world")
+11 
 
 
 
