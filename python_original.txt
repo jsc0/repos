@@ -101,9 +101,10 @@ This will delete all the variables
 
 
 
-######################### Strings:   Video 014, 015 and 016
+######################### Strings:   Video 014, 015 and 016. --------------------
 
-*-- Indexing: allows you to grab a single character.
+
+*-- Indexing: allows you to grab a single character. --------------------
 
 REMEMBER: The positions are going from 0 to the infinite. The first one is 0
 
@@ -122,7 +123,7 @@ mystring[-3]
 'r' 
 
 
-*-- Slicing: let's you to grab a subsection of multiple characters.
+*-- Slicing: let's you to grab a subsection of multiple characters. --------------------
 
 REMEMBER: The positions are going from 0 to the infinite. 
 
@@ -147,10 +148,50 @@ mystring[::-1]
 ihgfedcba
 
 
-*-- Strings properties and Methods:
+*-- Strings properties (016):--------------------------------
+
+--String concatenation: Merging 2 strings together. USING  +
+
+name = 'Pam'
+last_letters = name[1:]
+'am' 
+
+'S' + last_letters
+'Sam'
 
 
- 
+x = "Hello world"
+x + " it's beautifull outside!"
+"Hello world it's beautifull outside!"
+
+
+x = x + " it's beautifull outside!"
+x
+"Hello world it's beautifull outside!"
+
+
+USING *
+
+multiplica = "Q"
+multiplica * 10
+'QQQQQQQQQQ'
+
+
+*-- Methods (016, 017): --------------------
+
+x = 'hello world'  
+x.upper()
+'HELLO WORLD'
+
+x.lower()
+'hello world'
+
+x.split()  ------------> you split in the white space
+['hello', 'world']
+
+x.split('o')  ------------> you split in the 'o'
+['hell', ' w', 'rld']
+
 
 
 -- Scape sentences:  Inside a sentence you can do a change of line \n  or tab \t (4 spaces), etc.
