@@ -101,7 +101,7 @@ This will delete all the variables
 
 
 
-######################### Strings:   Video 014, 015 and 016. --------------------
+######################### Strings: indexing / slicing   Video 014, 015 and 016. --------------------
 
 
 *-- Indexing: allows you to grab a single character. --------------------
