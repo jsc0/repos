@@ -57,6 +57,8 @@ Booleans       - bool  - Logical value indicating true or false
 --Arithmetics:
 Module (good to know if a number is even or odd)
 
+Python lets you add, subtract, multiply and divide numbers with reassignment using +=, -=, *=, and /=
+
 
 ################# Variables:  ##############################
 
