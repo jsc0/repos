@@ -1,0 +1,9 @@
+####Certificates:
+
+* LPI: 
+LPIC-1: System Administrator:  Exams codes 101 and 102 (two exams)
+LPIC-2: Linux Engineer: Exams codes 201 and 202. (two exams)
+
+* ComTia Linux +
+LX0-103 and LX0-104 --> correspond directly to the LPI 101 and LPI 102 
+If you get the Comtia certificate you will get the LPIC-1 as well
