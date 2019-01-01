@@ -25,7 +25,19 @@ http://localhost:8890/?token=91d75a5728d3510039af33563cd65d3c2e9d7c2eaa9005be ::
 http://localhost:8889/?token=2a3bea1eac5716cd2131d487b9aaeb0058ccb43dc500f96c :: C:\Users\Trabajo
 
 --- On jupyter notebook, Click on New -- Notebook: Python 3 -- you can run 
-lines in cells, Shift + enter to run it or click the play button 
+lines in cells
+
+######## Anaconda Jupyter Keystrokes:
+dd ---> delete current cell
+a  ---> insert cell above current cell
+b  ---> insert cell below current cell
+Shift + enter to run it or click the play button 
+
+Restart the kernel ---> if you used a special word, like 'int' 'float' etc, to assign a variable into it.
+Do it on: Kernel -- Restart
+
+This will delete all the variables
+
 
 
 ######## Run program, go to the folder and: python nameprogram.py
@@ -91,16 +103,6 @@ int
 money = 10.5 --> we change the value of 'money' to a float data type
 type(money)  ---> we ask for the data type of a  
 float    ----> a is now a float
-
-
-
--- On Jupyter notebook:
-
-Restart the kernel ---> if you used a special word, like 'int' 'float' etc, to assign a variable into it.
-Do it on: Kernel -- Restart
-
-This will delete all the variables
-
 
 
 ######################### Strings: indexing / slicing   Video 014, 015 and 016. --------------------
