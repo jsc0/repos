@@ -1,5 +1,4 @@
 ####Certificates:
-
 * LPI: 
 LPIC-1: System Administrator:  Exams codes 101 and 102 (two exams)
 LPIC-2: Linux Engineer: Exams codes 201 and 202. (two exams)
@@ -7,3 +6,39 @@ LPIC-2: Linux Engineer: Exams codes 201 and 202. (two exams)
 * ComTia Linux +
 LX0-103 and LX0-104 --> correspond directly to the LPI 101 and LPI 102 
 If you get the Comtia certificate you will get the LPIC-1 as well
+
+
+* Keystrokes:
+
+Alt + f  Go forward one word
+Alt + B Go backward one word
+Ctrl + L  clear the screen 
+
+Ctrl + T Transpose character
+Alt + T Transpose words
+Alt + U  Uppercase word
+Alt + L lowercase word
+
+Ctrl + K  Cut text to the end of the line
+Ctrl + U  Cut text to the beginning of the line
+Ctrl + C  Delete whole line
+Alt + D cut next word
+Alt + W cut previous word
+Ctrl + Y  Paste most recently cut text
+Alt + Y   Paste the previous command
+
+cd -  Return to the previous directory
+
+* Sequential commands:
+date ; troff -me verylargedocument | lpr ; date
+
+* Expanding commands:
+vi $(find /home | grep xyzzy)
+
+* Expanding arithmetic expressions:
+echo "I am $[1015 - 1957] years old"
+I am 58 years old
+
+echo "There are $(ls | wc -w) files in this directory."
+There are 14 files in this directory.
+
