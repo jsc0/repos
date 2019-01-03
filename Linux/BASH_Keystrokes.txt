@@ -1,0 +1,20 @@
+
+### Kernel main functions:
+    • System memory management
+    • Software program management
+    • Hardware management
+    • Filesystem management
+
+### System memory management:
+Physical Memory (RAM)
+Swap Space (some space in the HD)
+
+Both are the Virtual memory. 
+
+* PAGES = The memory locations are gruped in blocks called PAGES
+
+* Swapping out: the kernel move to the swap space idle memory PAGES
+* Swapping in: one program request a memory page, the kernel swapp out memory PAGES to make room
+to swap in the one request by the program.
+
+
