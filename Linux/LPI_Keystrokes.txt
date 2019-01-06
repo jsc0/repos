@@ -42,3 +42,66 @@ I am 58 years old
 echo "There are $(ls | wc -w) files in this directory."
 There are 14 files in this directory.
 
+* type (command) ---> to find in which folder the command is
+type -a (command) ---> display all the folders in which the command is located.
+
+help  ---> to see the commands that are built in the shell directly instead of /bin/  etc.
+
+
+* Local / Shell environments:
+set  or  declare to see them
+
+* Environment variables:
+env  to see them
+
+-- To add a directory in the $PATH
+export PATH=$PATH:/var/log   ------> only current shell
+
+-- Add it permanently:
+vi ~ .bashrc
+PATH=$PATH:/var/log  ; export PATH
+
+
+
+* Alias:
+alias (letter or word)='command option argument)'
+alias puta='ls -l /var/log/'
+
+unalias puta  --->  to remove the alias
+
+Make it permanent:  
+vi ~ /.bashrc 
+alias puta='ls -l /var/log/'
+
+Then log in in a new terminal to apply the changes or type:   source $HOME/.bashrc
+
+* Prompt, modify it:
+export PS1="[\t \w]\$ "    ------> will work in my current shell
+
+vi ~/.bashrc
+
+* help / Man / Info
+
+(command) --help |less
+
+info (command)
+
+man (command)
+
+man -k (command)  will display all the manuals for all *passwd commands and it's sumary
+
+man 5 passwd --> go directly to the 5th section of the manual
+
+/ to search for a word inside the manual, n to go to the next and N to go to the previous one, 
+q for quit 
+
+
+
+
+
+
+
+
+
+
+
