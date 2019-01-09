@@ -1,0 +1,9 @@
+* Anaconda Jupyter Keystrokes:
+dd ---> delete current cell
+a  ---> insert cell above current cell
+b  ---> insert cell below current cell
+Shift + enter to run it or click the play button 
+
+Restart the kernel ---> if you used a special word, like 'int' 'float' etc, to assign a variable into it.
+Do it on: Kernel -- Restart
+This will delete all the variables
