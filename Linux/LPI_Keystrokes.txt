@@ -48,8 +48,9 @@ type -a (command) ---> display all the folders in which the command is located.
 help  ---> to see the commands that are built in the shell directly instead of /bin/  etc.
 
 
-* Local / Shell environments:
-set  or  declare to see them
+* Local / Shell environments: to see them
+set    
+declare 
 
 * Environment variables:
 env  to see them
@@ -95,6 +96,18 @@ man 5 passwd --> go directly to the 5th section of the manual
 / to search for a word inside the manual, n to go to the next and N to go to the previous one, 
 q for quit 
 
+
+* File redirection metacharacters:
+
+<  Directs the contents of a file to the command, is the default action, less bigfile.txt and less < bigfile.txt are the same
+
+> Directs standard output to a file. If the file exists the content is overwritten.
+
+>> Directs the output of a command to a file, adding the output to the end of that file.
+
+2> Directs standard error to the filename
+
+&> Directs standard output and error to the file.
 
 
 
