@@ -17,4 +17,3 @@ Both are the Virtual memory.
 * Swapping in: one program request a memory page, the kernel swapp out memory PAGES to make room
 to swap in the one request by the program.
 
-

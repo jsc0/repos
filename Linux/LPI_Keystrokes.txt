@@ -39,6 +39,8 @@ vi $(find /home | grep xyzzy)
 echo "I am $[1015 - 1957] years old"
 I am 58 years old
 
+date +’%d/%m/%y’ 
+
 echo "There are $(ls | wc -w) files in this directory."
 There are 14 files in this directory.
 
