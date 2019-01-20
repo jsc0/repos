@@ -7,3 +7,15 @@ Shift + enter to run it or click the play button
 Restart the kernel ---> if you used a special word, like 'int' 'float' etc, to assign a variable into it.
 Do it on: Kernel -- Restart
 This will delete all the variables
+
+
+* Data Types:
+
+Integers        - int     - whole numbers: 3 , 212 , 93
+Floating point  - float   - numbers with decimal:  23.1 , 23.32 , 7.34
+String          - str     - ordered sequence of characters:  "hello" 'Sammy' "2000" You can not change it's content.
+List            - list    - ordered sequence of objects: [10,"hello",200.3] Lists are mutable,you can change it's content
+Dictionaries    - dict    - unordered Key:Values pair: {"mykey":"value","name":"Frankie"}
+Tuples          - tup     - ordered immutable sequence of objects: (10,"hello,200.2")
+Sets  	        - set     - unordered collection of unique objects: {"a","b"}
+Booleans        - bool    - Logical value indicating true or false	
