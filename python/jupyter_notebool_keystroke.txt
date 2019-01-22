@@ -9,13 +9,34 @@ Do it on: Kernel -- Restart
 This will delete all the variables
 
 
-* Data Types:
+* Data Types: ---------------------------------------------------------------------------------------------------------
 
 Integers        - int     - whole numbers: 3 , 212 , 93
+
 Floating point  - float   - numbers with decimal:  23.1 , 23.32 , 7.34
-String          - str     - ordered sequence of characters:  "hello" 'Sammy' "2000" You can not change it's content.
-List            - list    - ordered sequence of objects: [10,"hello",200.3] Lists are mutable,you can change it's content
-Dictionaries    - dict    - unordered Key:Values pair: {"mykey":"value","name":"Frankie"}
+
+String          - str     - ordered sequence of characters:  "hello" 'Sammy' "2000" 
+• You can not change it's content.
+• Indexing, slicing, format printing. 
+•Methods: .upper() , .lower() , .split() , f string method
+
+List            - list    - ordered sequence of objects: [10,"hello",200.3] 
+• Lists are mutable,you can change it's content
+• Indexing, slicing, nesting
+• Methods: .append() , .pop() , .sort() , .reverse()
+
+Dictionaries    - dict    - unordered {'Key':'Values'} pair: {"mykey":"value","name":"Frankie"}
+• Unordered mappings to store objects using Key-Value pairing.
+• You can grab objects without knowing an index location 
+• Can not be sorted
+• Can hold integers, float, stings, list,or other dictionaries
+
 Tuples          - tup     - ordered immutable sequence of objects: (10,"hello,200.2")
+
 Sets  	        - set     - unordered collection of unique objects: {"a","b"}
+
 Booleans        - bool    - Logical value indicating true or false	
+
+
+
+ ---------------------------------------------------------------------------------------------------------
