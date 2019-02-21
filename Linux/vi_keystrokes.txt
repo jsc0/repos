@@ -1,0 +1,70 @@
+vimtutor 
+
+######## Inserting ##########
+Insert end of line:  A
+Insert beginning of line:  I
+Insert below & empty line:   o
+Insert above & empty line:   O
+Remove line & insert mode:  S
+
+####### Moving arround #########
+Beggining of line:  0   
+End of line:  $
+Next word:  w   (delimited by spaces, tabs, or punctuation)
+Next word:  W   (delimited tabs or empty spaces)
+Previous word:  b (tabs, spaces, puntuation)
+Previous word:  B (space, tabs)
+Go to last line:   G
+Go to first line:  1G
+Go to the line n:   xG
+Upper left screen:  H
+Middle left :       M
+Lower left screen:  L
+
+##### Delete - Change (erase) - Yanks (paste) #########
+DELETE WITHOUT INSERT
+Delete word on right cursor: dw 
+Delete word left cursor:  db
+Delete Entire line:  dd
+
+DELETE WITH INSERT (and copies the items deleted)
+Change (erase) line & insert:  cc
+Change (erase) from cursor to end & insert:  c$
+Change (erase) next word & insert:  cw
+
+YANKS (copy) WITHOUT INSERT
+Copy current line:  yy
+Copy from cursor to end:  y)
+
+PASTE
+Put copied text on right:  p
+Put copied text on left: P
+
+Delete 3 lines: 3dd
+Delete 3 words: 3dw
+Change 5 leters: 5cl
+
+######## Search ##########
+Search forward: /  ---->  tipe n for next word and N to the previous word
+Search backward:  ?   n or N works as well.
+
+####### Ex Mode (when you type : ) ##########
+:g/word   Will highlight the word as many times is appearing in the text
+:s/polla/culo  Substitutes first occurence of polla for culo
+:g/polla/s /culo/g Substitutes every occurrence of polla for culo in the entire file
+:g/polla/s /culo/gp Same previous command but showing one by one.
+
+######## Miscelany ########
+
+Save and exit:  ZZ or :x or :wq
+
+Repeat last command:   .  (period) 
+
+Undo:  u
+Redo:  Ctrl+r
+
+Run a command inside vi    :!command  :!ls /home
+Run a bash shell inside vi:  :bash!   --> tipe exit to return to vi   
+
+Display filename:  Ctrl+g
+
