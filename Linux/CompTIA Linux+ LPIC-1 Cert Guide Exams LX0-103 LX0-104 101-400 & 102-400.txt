@@ -1,0 +1,55 @@
+1 D
+2 A
+3 A
+4 D
+5 A
+6 Boot manager placement, C or D
+7 B
+
+
+IO ports are used to transfer data between the CPU and devices.
+
+LVM
+PEs are just a unit of allocation. Study PE
+The PVs are carved up into PEs.
+
+BIOS
+the BIOS is used to load the first stage of the boot manager
+/boot contains the kernel and later stages
+the partition table is just a table pointing at the locations of the various partitions
+MBR is the first place the BIOS looks for a bootable block.
+MBR is the first block on the disk where the first stage of the bootloader and the partition tables are located.
+
+Swap memory
+kernel’s virtual memory allows a memory page to be swapped to disk and swapped back later when it’s needed.
+
+
+1a X B
+2d
+3c
+4c X B
+5d
+6b
+7c Memory is not persistent
+8d 
+9b
+10a
+11b
+12d
+13a
+14a
+15c?
+16d
+
+
+
+
+
+
+
+
+
+
+
+
+
