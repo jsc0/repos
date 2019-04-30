@@ -52,4 +52,3 @@ kernel’s virtual memory allows a memory page to be swapped to disk and swapped
 
 
 
-
