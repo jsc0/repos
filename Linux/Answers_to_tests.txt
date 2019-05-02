@@ -41,13 +41,62 @@ kernel’s virtual memory allows a memory page to be swapped to disk and swapped
 15c?
 16d
 
+cloud_user
+W02TqnNPlo02
 
 
+chapter 1
+1c 
+2b
+3c
+4d
+5a
+6b
+7c X D
+8a single user? X C
+9 b X A
+10 d
+11c
+12 d
+13a
+14c ?
+15 d
+16c
+17a
+18b
+19a ??? X C -nn
+20d
+21 b ????? X C
+22a X B
+23???? d X B
+24b X D
+25 grub, study it
+26ngrub
+27 grub
+28 d
+29 a????  X C
+30c X B
+31upstart c??? 
+32 checkconfig c? X B
+33c
+34d
+35a????
+36c X B
+37efi ?
+38a
+39d
+40b
+41c?????
+42d
+43a???
+44c
+45b X C
+46c???? X A
+47??????d 
+48c
 
-
-
-
-
+16:45
+17:23
 
 
 
