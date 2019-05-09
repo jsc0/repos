@@ -101,3 +101,88 @@ chapter 1
 
 
 
+
+19:20
+19:53
+
+1 c
+2 b
+3c
+4 d Udev 
+5a
+6b
+7c X d
+8a X c grub kernel command 
+9a
+10d?
+11c
+12d
+13a
+14c?
+15d
+16c
+17a
+18b
+19c
+20d
+21c
+22b
+23b
+24d
+25a X b grub conf line
+26c
+27a
+28d
+29c
+30b
+31 upstart c?  X a
+32chkconfig sysv c. X b
+33c
+34d
+35a
+36b
+37d
+38a
+39d
+40b
+41c
+42d
+43a
+44c
+45b X c
+46 ?a scsi
+47d
+48c 
+
+48 100
+6  12.5%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
