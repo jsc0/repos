@@ -158,26 +158,11 @@ chapter 1
 6  12.5%
 
 
+ES73 1491 0001 2020 0822 2529
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+git show-ref refs/remotes/origin/master
+git remote -v   #to see the remove git repo
 
 
 
