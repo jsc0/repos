@@ -1,4 +1,17 @@
 https://support.apple.com/es-es/HT201236
 
-Paste without format:
+--Paste without format:
 cmd + alt + v
+
+--Take a portion screen shot and copy it to your clipboard:
+cmd + ctrl + shift + 4
+
+--Take a portion screenshot and save it into a file:
+cmd + shift + 4
+
+with 3 will do an entire screen shot
+
+-- Capture video:
+cmd + shift + 5
+select entire screen or portion then clic on record.
+To stop it, cmd + shift + 5 again and Stop screen recording 
