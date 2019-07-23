@@ -1,0 +1,4 @@
+cloud_user
+W02TqnNPlo02
+
+kubeadm join 172.31.127.122:6443 --token lyor41.j8pn8jtqr798hnh9 --discovery-token-ca-cert-hash sha256:e074ae1651acd37d1cb48a37cc630cd681b0c3fdb4bbe8f2b0eafab41b142e3c
