@@ -2,3 +2,25 @@ cloud_user
 W02TqnNPlo02
 
 kubeadm join 172.31.127.122:6443 --token lyor41.j8pn8jtqr798hnh9 --discovery-token-ca-cert-hash sha256:e074ae1651acd37d1cb48a37cc630cd681b0c3fdb4bbe8f2b0eafab41b142e3c
+
+
+
+
+
+
+
+
+
+Get the etcd binaries:
+wget https://github.com/etcd-io/etcd/releases/download/v3.3.12/etcd-v3.3.12-linux-amd64.tar.gz
+
+Unzip the compressed binaries:
+tar xvf etcd-v3.3.12-linux-amd64.tar.gz
+
+Move the files into /usr/local/bin:
+sudo mv etcd-v3.3.12-linux-amd64/etcd* /usr/local/bin
+
+Take a snapshot of the etcd datastore using etcdctl:
+sudo ETCDCTL_API=3 etcdctl snapshot save snapshot.db --cacert /etc/kubernetes/pki/etcd/server.crt --cert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/ca.key
+
+
