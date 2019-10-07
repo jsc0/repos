@@ -1,0 +1,41 @@
+[A-Z,a-z,0-9]
+
+grep -E '[A-Z,a-z,0-9][A-Z,a-z,0-9,\.\-]*\@' customer-data.txt 
+
+grep -Eo '[A-Z,a-z,0-9][A-Z,a-z,0-9,\.\-]*\@[A-Z,a-z,0-9][A-Z,a-z,0-9,\-]*\.\w{2,63}' customer_data.txt
+
+
+
+grep -E '[A-Z,a-z,0-9][A-Z,a-z,0-9,\W]*\@' customer-data.txt
+
+Block	Dale	panel.80432@outlook.com	02379 Shana Mountains, New Krystelport, TX 57959-2341	07-30-1967	635465811
+Stroman	Burley	Beauty-90184@yahoo.com	360 Bosco Oval, Lake Berta, KY 98227-3209	11-07-1990	434019668
+
+
+
+
+
+
+
+---------------------------------------------------------------------
+dont match Beauty-90184@yahoo.com
+grep -E '[A-Z,a-z,0-9][A-Z,a-z,0-9,\-\.]*\@' customer_data.txt 
+
+
+
+
+\!\#\$\%\&\'\*\+\-\/\=\?^\_\`\{\|\}\~\.
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+You work for Ethercloud, a web hosting company. Due to scheduled downtime, the support team needs a list of email addresses so that they can contact customers appropriately. Since you have access to a CSV of customer data (customer-data.xt), you've been tasked with retrieving all emails from this data via regular expression and sorting them in alphabetical order. (Hint: Use grep and sort.)
+
+While writing the regular expression, note the following restrictions regarding email address:
+
+The local-part (or username), can use any alphanumeric character or one of the following: ! # $ % & ' * + - / = ? ^ _ ` { | } ~ .
+The second-level domain (gmail in gmail.com) must begin with an alphanumeric character but any character after that can also contain a dash (-).
+The domain must be at least one character long.
+The top-level domain (such as com) must only use alphanumeric characters.
+The top-level domain must be between two and 63 characters.
