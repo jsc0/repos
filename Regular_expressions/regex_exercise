@@ -4,6 +4,8 @@ grep -E '[A-Z,a-z,0-9][A-Z,a-z,0-9,\.\-]*\@' customer-data.txt
 
 grep -Eo '[A-Z,a-z,0-9][A-Z,a-z,0-9,\.\-]*\@[A-Z,a-z,0-9][A-Z,a-z,0-9,\-]*\.\w{2,63}' customer_data.txt
 
+#############Final one: Still not matching Beauty-90184@yahoo.com 
+grep -Eo '[A-Z,a-z,0-9][A-Z,a-z,0-9,\.-\}]*@[A-Z,a-z,0-9\-]*.[A-Z,a-z,0-9{2-63}]*' customer_data.txt 
 
 
 grep -E '[A-Z,a-z,0-9][A-Z,a-z,0-9,\W]*\@' customer-data.txt
