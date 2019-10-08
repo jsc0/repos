@@ -301,7 +301,11 @@ Hodkiewicz	Trisha	Bedfordshire96470@gmail.com	152 Boyer Viaduct, Effertzside, MI
 Dickinson	Lon	Metrics33941@gmail.com	61000 Grady Pike, Johnnychester, NC 56767	01-13-1982	523712436
 Block   Dale    panel.80432@outlook.com 02379 Shana Mountains, New Krystelport, TX 57959-2341   07-30-1967      635465811
 Howell  Stephany        Ball60542@gmail.com     76644 Balistreri Forks, Lake Dannieton, MT 60888-2451   06-30-1970      395164851
+<<<<<<< HEAD
 4 Stram Burley   Beauty-90184@yahoo.com  360 Bosco Oval, Lake Berta, KY 98227-3209       11-07-1990      434019668
 3 AAAAA BBBBB    CCcc{.CC@gmail.com
 2 DDddd FFFfff   gGGg@99-mail.com
 1 hHHHH Iiiiii   jJJJJ}#}}@G-Mail.com
+=======
+Stroman Burley  Beauty-90184@yahoo.com  360 Bosco Oval, Lake Berta, KY 98227-3209       11-07-1990      434019668
+>>>>>>> 0662d401b87aa80ff556d25e644b05338bdf445e
