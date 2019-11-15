@@ -1,0 +1,55 @@
+Page: scaleyourcode.com 
+Referrer: linux 
+
+Page: scaleyourcode.com 
+Referrer: security 
+
+Page: google.com 
+Referrer: containers 
+
+Page: linuxacademy.com 
+Referrer: security 
+
+Page: scaleyourcode.com 
+Referrer: aws 
+
+Page: linuxacademy.com 
+Referrer: azure 
+
+Page: linuxacademy.com/blog 
+Referrer: security 
+
+Page: linuxacademy.com 
+Referrer: aws 
+
+Page: linuxacademy.com 
+Referrer: containers 
+
+Page: google.com 
+Referrer: containers 
+
+Page: google.com 
+Referrer: linux 
+
+Page: linuxacademy.com/blog 
+Referrer: security 
+
+Page: scaleyourcode.com 
+Referrer: linux 
+
+Page: linuxacademy.com 
+Referrer: linux 
+
+Page: linuxacademy.com/blog 
+Referrer: linux 
+
+Page: linuxacademy.com 
+Referrer: gcp 
+
+Page: google.com 
+Referrer: containers 
+
+Page: linuxacademy.com/blog 
+Referrer: containers 
+
+perl -nle '/\/([A-Z,a-z,0-9]*\s)(?:HTTP\/[0-9]\.[0-9]\"\s[0-9]*\s[0-9]*\s\"https?\:\/\/)(?:www.)?([A-Z,a-z,0-9][A-Z,a-z,0-9,\-]+\.[A-Z,a-z]*\/?[A-Z,a-z]*)/ && print "Page: $2 \nReferrer: $1\n"' access-logs
