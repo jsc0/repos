@@ -3,6 +3,9 @@ https://support.apple.com/es-es/HT201236
 --Paste without format:
 cmd + alt + v
 
+--Select the whole line:
+cmd + Alt + arrow
+
 --Take a portion screen shot and copy it to your clipboard:
 cmd + ctrl + shift + 4
 
