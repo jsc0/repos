@@ -1,0 +1,5 @@
+1 - <li>When referencing that backreference in the <code>if</code> state, only use the name of the reference, do not call the reference as normal (i.e., do not use <code>\g{named_ref}</code>)</li>
+
+2 - <li>“If the expressions matches”a“, do this; if it does not, do this other thing”</li>
+
+3 - <li><code>(?&lt;! ... )</code>: A negative lookbehind; the regex engine ensures this match does <em>not</em> exist as a boundary <em>before</em> the expression</li>
