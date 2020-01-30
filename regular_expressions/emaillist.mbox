@@ -1,0 +1,67 @@
+From builds-return-6254-apmail-builds-archive=apache.org@apache.org  Tue Jun  5 18:19:13 2018
+Return-Path: <builds-return-6254-apmail-builds-archive=apache.org@apache.org>
+X-Original-To: apmail-builds-archive@minotaur.apache.org
+Delivered-To: apmail-builds-archive@minotaur.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+        by minotaur.apache.org (Postfix) with SMTP id 3B1F018EDF
+        for <apmail-builds-archive@minotaur.apache.org>; Tue,  5 Jun 2018 18:19:13 +0000 (UTC)
+Received: (qmail 47441 invoked by uid 500); 5 Jun 2018 18:19:13 -0000
+Delivered-To: apmail-builds-archive@apache.org
+Received: (qmail 47322 invoked by uid 500); 5 Jun 2018 18:19:12 -0000
+Mailing-List: contact builds-help@apache.org; run by ezmlm
+Precedence: bulk
+List-Help: <mailto:builds-help@apache.org>
+List-Unsubscribe: <mailto:builds-unsubscribe@apache.org>
+List-Post: <mailto:builds@apache.org>
+List-Id: <builds.apache.org>
+Reply-To: builds@apache.org
+Delivered-To: mailing list builds@apache.org
+Received: (qmail 47292 invoked by uid 99); 5 Jun 2018 18:19:12 -0000
+Received: from pnap-us-west-generic-nat.apache.org (HELO spamd2-us-west.apache.org) (209.188.14.142)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Tue, 05 Jun 2018 18:19:12 +0000
+Received: from localhost (localhost [127.0.0.1])
+        by spamd2-us-west.apache.org (ASF Mail Server at spamd2-us-west.apache.org) with ESMTP id D25531A06EB
+        for <builds@apache.org>; Tue,  5 Jun 2018 18:19:11 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at spamd2-us-west.apache.org
+X-Spam-Flag: NO
+X-Spam-Score: 2.972
+X-Spam-Level: **
+X-Spam-Status: No, score=2.972 tagged_above=-999 required=6.31
+        tests=[HTML_MESSAGE=2, RCVD_IN_DNSWL_NONE=-0.0001, SPF_SOFTFAIL=0.972]
+        autolearn=disabled
+Received: from mx1-lw-us.apache.org ([10.40.0.8])
+        by localhost (spamd2-us-west.apache.org [10.40.0.9]) (amavisd-new, port 10024)
+        with ESMTP id eUGYpm9Vrr5h for <builds@apache.org>;
+        Tue,  5 Jun 2018 18:19:11 +0000 (UTC)
+Received: from mailin01.mxof.com (mailin01.mxof.com [198.24.62.11])
+        by mx1-lw-us.apache.org (ASF Mail Server at mx1-lw-us.apache.org) with ESMTPS id A1FD35F173
+        for <builds@apache.org>; Tue,  5 Jun 2018 18:19:10 +0000 (UTC)
+Received: from mta01.mxof.net (mta01.mxof.net [10.1.0.31])
+        by mailin01.mxof.com (8.14.4/8.14.4/Debian-8+deb8u2) with ESMTP id w55IJ38c006606
+        (version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+        for <builds@apache.org>; Tue, 5 Jun 2018 11:19:04 -0700
+Received: from mta01.mxof.net (localhost [127.0.0.1])
+        by mta01.mxof.net (Postfix) with ESMTPS id E63EB2620DF
+        for <builds@apache.org>; Tue,  5 Jun 2018 11:19:03 -0700 (PDT)
+Received: from localhost (localhost [127.0.0.1])
+        by mta01.mxof.net (Postfix) with ESMTP id D0A1A26211C
+        for <builds@apache.org>; Tue,  5 Jun 2018 11:19:03 -0700 (PDT)
+X-Virus-Scanned: amavisd-new at prxy.com
+Received: from mta01.mxof.net ([127.0.0.1])
+        by localhost (mta01.mxof.net [127.0.0.1]) (amavisd-new, port 10026)
+        with ESMTP id 0uzLvqFLJAyu for <builds@apache.org>;
+        Tue,  5 Jun 2018 11:19:03 -0700 (PDT)
+Received: from kens-mbp.hsd1.ca.comcast.net (c-73-192-239-205.hsd1.ca.comcast.net [73.192.239.205])
+        by mta01.mxof.net (Postfix) with ESMTPSA id 85F312620E0
+        for <builds@apache.org>; Tue,  5 Jun 2018 11:19:03 -0700 (PDT)
+From: Ken <k23423@ethercloud.io>
+Content-Type: multipart/alternative;
+ boundary="Apple-Mail=_CCD98049-6552-4041-8ECE-CE292DC5325B"
+Mime-Version: 1.0 (Mac OS X Mail 10.3 \(3273\))
+Subject: Project-specific sitemap for build server content
+Message-Id: <B15B842E-322A-4A24-9022-CCEA6732E920@apache.org>
+Date: Tue, 5 Jun 2018 11:19:02 -0700
+To: builds@apache.org
+X-Mailer: Apple Mail (2.3273)
+X-MSH-Id: C08855224D444AA2B5D5D83839E00276
+
