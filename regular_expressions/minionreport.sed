@@ -9,3 +9,7 @@ s/^\s+//
 N
 s/\n\s+/ /
 }
+/^(__run_num__|duration|name|result|start_time|__state_ran__):/d
+s/__id__/ID/
+s/__sls__/SLS/
+s/comment: (.+)/Comment: \1\n/
