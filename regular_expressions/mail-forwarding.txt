@@ -1,0 +1,109 @@
+Configure a System to Forward All Email to a Central Mail Server
+
+All Red Hat servers using postfix must forward their mail to alerts@ethercloud.io.
+
+I. Forwarding Server
+
+We need to install and configure Postfix to forward all email to an external server. Connect to the server, which works as our forwarding server and uses a null client; this entails that this server does not receive mail, but instead only receives requests to send to on to an actual email server.
+
+To begin, install Postfix:
+
+[root@red-hat ~]# yum install postfix
+
+Postfix runs a mail daemon that allows the server to deal with mail on the server-level.
+
+Navigate to /etc/postfix, where the main.cf and master.cf files are hosted. These are the configuration files used to set up the Postfix install.
+
+Open main.cf in your chosen text editor.
+
+This file contains a large number of settings; we need to hone in on the specific settings used to set up mail forwarding. The first of these settings is the `relayhost`, which tells the server where it should be relaying the mail when a request comes:
+
+    relayhost = [smtp.gmail.com]:587
+
+Additionally, we need to add in Gmail-specific encryption settings; generally additional settings do not need to be added for configurations outside of Gmail.
+
+    # Gmail Specific Settings
+    smtp_use_tls = yes
+    smtp_sasl_auth_enable = yes
+    smtp_sasl_password_maps = hash:/etc/postfix/sasl_password
+    smtp_tls_CAfile = /etc/ssl/certs/ca-bundle.crt
+    smtp_sasl_security_options = noanonymous
+    smtp_sasl_tls_security_options = noanonymous
+
+With the Gmail configuration added, we now need to look at the `inet_interfaces` options to indicate that we are only forwarding from our local system.
+
+    inet_interfaces = loopback-only
+
+Next, configure the `mynetworks` setting:
+
+    mynetworks = 127.0.0.0/8 [::1]/128
+
+The `myorigin` option sets the location of where messages are coming from. We want to set this to do a hostname lookup by defining the hostname of our server:
+
+    myorigin = $myhostname
+
+We also want to look at the destination; since we are only forwarding email to another server, this setting should instead be blank:
+
+    mydestination =
+
+The `local_transport` setting does not exist in the default configure, but should be added to indicate that local delivery is disabled. We added this setting immediately below the previous `mydestination` setting.
+
+    local_transport = error: local delivery disabled
+
+This completes the main.cf configuration for email forwarding. Save and exit. From here, we need to create a sasl_poassword file to allow us to securely forward mail to Gmail; this is not needed for the RHCE exam, but does progress the lab.
+
+    [smtp.gmail.com]:587 alerts@ethercloud.io:password
+
+We can now test the server. Run `postmap` on the sasl_passwd file, so Postfix knows to use the provided configuration.
+
+[root@red-hat postfix]# postmap sasl_passwd
+
+Ensure the permissions are correct on the sasl_passwd file:
+
+[root@red-hat postfix]# chown root:postfix sasl_passwd
+[root@red-hat postfix]# chmod 640 sasl_passwd
+
+Rerun the `postmap` command:
+
+[root@red-hat postfix]# postmap sasl_passwd
+
+Start the `postfix` service, and ensure it is set to start on boot:
+
+[root@red-hat postfix]# systemctl enable postfix
+[root@red-hat postfix]# systemctl start postfix
+
+II. Client Testing
+
+With our relay server set up, we want to be able to test our mail on a client.
+
+[root@red-hat postfix]# mail -s "This is a POSTFIX RHCE forwarding test" alerts@ethercloud.io
+
+Check the email sent to the address you provided. Should you try to reply to the email, the server is unable to receive it, since it is set up for mail forwarding, and no domains are configured.
+
+With the test finished, the forwarding server configuration is now complete!
+
+
+
+
+
+
+
+####################################################################################################
+Additional Information and Resources
+You are an employee at EtherCloud, a web hosting company. There has been a push to migrate all internal documentation to Latex, and it has fallen to you to convert some files. A few files in particular are oddly formatted. Using a sed script and the provided example file, mail-forwarding.txt, create a script that completes the following tasks:
+
+Add the following to the top of the document:
+
+  \documentclass{article}
+  \usepackage{hyperref}
+  \begin{document}
+Encase the first line in a /title{NAME} tag
+
+Convert all sections starting with Roman numerals to use \section{NAME}; do not keep the Roman numerals (Roman numerals use the following letters: I V X L C D M
+Encase all lines starting with [root@red-hat ~]# in code blocks (\begin{verbatim} and \end{verbatim}; note that the ~ can be alternate text
+There are some instances where two lines start with [root@red-hat ~]# immediately after one another; use sed's N functionality to write this portion of the script
+Any lines beginning with four spaces or a tab should be contained in code blocks; it is acceptable for each line to have its own code block tags since each line in a different setting
+Format any file names ending with .cf to use /texttt{TEXT} tags
+Change anything encased in backtics to use /texttt{TEXT} tags
+At the end of the document add \end{document}; this can be done by using $ a <APPENDED TEXT>
+Save the script as latex.sed and the converted file as mail-forwarding.txt.
