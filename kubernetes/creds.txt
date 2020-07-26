@@ -1,26 +1,17 @@
 cloud_user
-W02TqnNPlo02
-
-kubeadm join 172.31.127.122:6443 --token lyor41.j8pn8jtqr798hnh9 --discovery-token-ca-cert-hash sha256:e074ae1651acd37d1cb48a37cc630cd681b0c3fdb4bbe8f2b0eafab41b142e3c
+asdfas234$$
 
 
-
-
+kubeadm join 10.0.1.101:6443 --token bzfw0b.2hn1qsy0vqc7dzhx \
+    --discovery-token-ca-cert-hash sha256:7fb5a1e0e7b0c7e2f916053f2e208faf326fc2395833d660315dbf38754e996b 
 
 
 
 
-
-Get the etcd binaries:
-wget https://github.com/etcd-io/etcd/releases/download/v3.3.12/etcd-v3.3.12-linux-amd64.tar.gz
-
-Unzip the compressed binaries:
-tar xvf etcd-v3.3.12-linux-amd64.tar.gz
-
-Move the files into /usr/local/bin:
-sudo mv etcd-v3.3.12-linux-amd64/etcd* /usr/local/bin
-
-Take a snapshot of the etcd datastore using etcdctl:
-sudo ETCDCTL_API=3 etcdctl snapshot save snapshot.db --cacert /etc/kubernetes/pki/etcd/server.crt --cert /etc/kubernetes/pki/etcd/ca.crt --key /etc/kubernetes/pki/etcd/ca.key
+Install Docker on all three nodes.
+Install Kubeadm, Kubelet, and Kubectl on all three nodes.
+Bootstrap the cluster on the Kube master node.
+Join the two Kube worker nodes to the cluster.
+Set up cluster networking with flannel.
 
 
