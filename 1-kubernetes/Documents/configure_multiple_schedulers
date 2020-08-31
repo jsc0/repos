@@ -67,7 +67,11 @@ roleRef:
 
 
 
-Edit the existing kube-scheduler cluster role with kubectl edit clusterrole system:kube-scheduler and add the following:
+Edit the existing kube-scheduler cluster role with 
+
+kubectl edit clusterrole system:kube-scheduler 
+
+and add the following:
 
 - apiGroups:
   - ""
