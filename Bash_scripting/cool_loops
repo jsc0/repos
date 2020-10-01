@@ -1,0 +1,17 @@
+Cool Loops and tests:
+
+--Send My program to output.txt every 3 seconds in an infinite loop and do it in the 
+background. Good to see background jobs 
+
+(while true;do echo -n "My program ">> ~/output.txt; sleep 3; done) &
+
+
+-- Take all the files that start with KARAF and append an empty space removing 
+everything whas in the file.
+
+for i in KARAF*; do echo "" > $i; done
+
+--Create a heavy folder, 1GB. You can see how much time spends in being compressed:
+dd if=/dev/zero of=/root/test.file bs=1M count=1024
+
+
