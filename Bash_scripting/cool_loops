@@ -5,6 +5,11 @@ background. Good to see background jobs
 
 (while true;do echo -n "My program ">> ~/output.txt; sleep 3; done) &
 
+-- Do the same but to test the cpu:
+(while true;do echo -n "My program "> ~/output.txt; done) &
+
+It will force the cpu. Run it several time to speed up the cpu utilization.
+When you are done kill the jobs:  kill %1; kill %2 etc.
 
 -- Take all the files that start with KARAF and append an empty space removing 
 everything whas in the file.
