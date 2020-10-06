@@ -19,4 +19,6 @@ for i in KARAF*; do echo "" > $i; done
 --Create a heavy folder, 1GB. You can see how much time spends in being compressed:
 dd if=/dev/zero of=/root/test.file bs=1M count=1024
 
-
+--The same but without using space. Good for testing bg/fb commands or see processes 
+constantly running:
+dd if=/dev/zero of=/dev/null
