@@ -22,3 +22,15 @@ dd if=/dev/zero of=/root/test.file bs=1M count=1024
 --The same but without using space. Good for testing bg/fb commands or see processes 
 constantly running:
 dd if=/dev/zero of=/dev/null
+
+
+###################################
+Send multiple request to a website:
+
+for i in {1..35}; do
+   kubectl exec --namespace=kube-public curl -- sh -c 'test=`wget -qO- -T 2  http://webapp-service.default.svc.cluster.local:8080/info 2>&1` && echo "$test OK" || echo "Failed"';
+   echo ""
+
+
+
+
