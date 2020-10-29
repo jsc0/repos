@@ -1,0 +1,245 @@
+#!/usr/bin/env python3.6
+
+name = input("What's your name: ")
+birthdate = input("What is your birthdate: ")
+age = int(input("How old are you: "))
+
+print(f"{name} was born on {birthdate}")
+print(f"Half of your age is {age / 2}")
+
+#!/usr/bin/env python3.6
+
+# BMI = (weight in kg / height in meters squared)
+# Imperial version BMI * 703
+
+# Prompt the user for information. Height, weight and which system want you to use.
+def gather_info():
+    height = float(input("What is your height? (inches or meters) "))
+    weight = float(input("What is your weight? (pounds or kilograms) "))
+    system = input("Are your measurements in metric or imperial units? " ).lower().strip()
+    return (height, weight, system)
+
+# Do the proper calculations with the data introduced by the user in the gather_info function.
+def calculate_bmi(weight, height, system='metric'):
+    """
+    Return the Body Mass Index (BMI) for the
+    given weight, height, and measurement system.
+    """
+    if system == 'metric':
+        bmi = (weight / (height ** 2))
+    else:
+        bmi = 703 * (weight / height ** 2)
+    return bmi
+
+# Scrip starts
+while True:
+    height, weight, system = gather_info()
+    if system.startswith('i'):
+        bmi = calculate_bmi(weight, system=system, height=height)
+        print(f"Your BMI is {bmi}")
+        break
+    elif system.startswith('m'):
+        bmi = calculate_bmi(weight, height)
+        print(f"Your BMI is {bmi}")
+        break
+    else:
+        print("Error: Unknown measurement system. Please use imperial or metric.")
+
+# Script ends
+#!/usr/bin/env python3.6
+
+import argparse
+
+
+parser = argparse.ArgumentParser(description='Search for words including partial word')
+parser.add_argument('snippet', help='partial (or complete) string to search for in words')
+
+
+args = parser.parse_args()
+snippet = args.snippet.lower()
+
+
+words = open('/usr/share/dict/words').readlines()
+print([word.strip() for word in words if snippet in word.lower()])
+#!/usr/bin/env python3.6
+print("Hello, world!")
+Beast
+Wolverine
+Cyclops
+Bishop
+Nightcrawler
+#!/usr/bin/env python3.6
+
+import argparse
+
+
+parser = argparse.ArgumentParser(description='Search for words including partial word')
+parser.add_argument('snippet', help='partial (or complete) string to search for in words')
+
+
+args = parser.parse_args()
+snippet = args.snippet.lower()
+
+
+with open('/usr/share/dict/words') as f:
+      words = f.readlines()
+
+
+      matches = []
+
+
+      for word in words:
+             if snippet in word.lower():
+                        matches.append(word)
+
+
+                        print(matches)
+#!/usr/bin/env python3.6
+
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('filename', help='the file to read')
+parser.add_argument('--limit', '-l', type=int, help='the number of lines to read')
+parser.add_argument('--version', '-v', action='version', version='%(prog)s 1.0')
+
+args = parser.parse_args()
+
+with open(args.filename) as f:  # we try to open the file that is given because filename is a required argument
+    lines = f.readlines()
+    lines.reverse()
+
+    if args.limit:
+        lines = lines[:args.limit]
+
+    for line in lines:
+        print(line.strip()[::-1])
+
+#print(args) this is not required for the next part of the execise.
+# parse the arguments
+
+# read the file, reverse the contents and print
+#!/usr/bin/env python3.6
+
+import sys
+
+print(f"Positional arguments: {sys.argv[1:]}")
+print(f"First argument: {sys.argv[1]}")
+#!/usr/bin/env python3.6
+
+import argparse
+import sys
+
+parser = argparse.ArgumentParser()
+parser.add_argument('filename', help='the file to read')
+parser.add_argument('--limit', '-l', type=int, help='the number of lines to read')
+parser.add_argument('--version', '-v', action='version', version='%(prog)s 1.0')
+
+args = parser.parse_args()
+
+try:
+    f = open(args.filename)
+    limit = args.limit
+except FileNotFoundError as err:
+    print(f"Error: {err}")
+    sys.exit(69)
+else:
+    with f:
+        lines = f.readlines()
+        lines.reverse()
+
+        if args.limit:
+            lines = lines[:limit]
+
+        for line in lines:
+             print(line.strip()[::-1])
+
+
+
+#!/usr/bin/env python3.6
+
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('filename', help='the file to read')
+parser.add_argument('--limit', '-l', type=int, help='the number of lines to read')
+parser.add_argument('--version', '-v', action='version', version='%(prog)s 1.0')
+
+args = parser.parse_args()
+
+with open(args.filename) as f:  # we try to open the file that is given because filename is a required argument
+    lines = f.readlines()
+    lines.reverse()
+
+    if args.limit:
+        lines = lines[:args.limit]
+
+    for line in lines:
+        print(line.strip()[::-1])
+
+#print(args) this is not required for the next part of the execise.
+# parse the arguments
+
+# read the file, reverse the contents and print
+#!/usr/bin/env python3.6
+
+import os
+
+stage = os.getenv("STAGE", default="dev").upper()
+
+output = f"We're running in {stage}"
+
+if stage.startswith("PROD"):
+    output = "DANGER!!! - " + output
+
+print(output)
+
+#!/usr/bin/env python3.6
+
+# This is a stop watch.Will print you the current time and will ask you to press enter to stop the clock.
+# Once you pressed enter will show you the time when you pressed enter and how much seconds have passed since the # begginng until you pressed enter, yes it's amazing
+
+from time import localtime, mktime, strftime
+
+start_time = localtime()
+print(f"Timer started at {strftime('%X', start_time)}")
+
+# Wait for user to stop timer
+input("Press 'Enter' to stop timer ")
+
+stop_time = localtime()
+difference = mktime(stop_time) - mktime(start_time)
+
+
+print(f"Timer stopped at {strftime('%X', stop_time)}")
+print(f"Total time: {difference} seconds")
+
+#!/usr/bin/env python3.6
+
+# Convert videos into images
+# You can run it like this: videos.py /videos /images
+
+import argparse
+
+#Create the parser:
+my_parser = argparse.ArgumentParser(description='Videos converted to images')
+
+# We create the variable indir with str as type and a help message is provided.
+my_parser.add_argument('indir', type=str, help='Type the input directory for videos')
+
+# We create the variable outdir in this case
+my_parser.add_argument('outdir', type=str, help='Type the output directory for images')
+
+#Next the args variable is set to the values of the parsed arguments.
+args = my_parser.parse_args()
+
+print(args.indir)
+
+
+Storm
+Wolverine
+Cyclops
+Bishop
+Nightcrawler
+Professor Xavier
+Something
