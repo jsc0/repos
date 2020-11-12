@@ -1,0 +1,19 @@
+Components of IAM:------------------------------------------------
+
+Users:
+
+Groups --> Many users together form a group. Collection of IAM users.
+You can use IAM groups to specify permissions for multiple users.
+Any permission applied to the group are applied to the users inside 
+this group.
+A new person joins the company. You can add him to the proper group and 
+he will have that group permissions automatically.
+
+Policies --> Engines that allows or deny a connection. Based on policies
+one gets access or NO access to resources.
+
+Roles --> Temporary credentials 
+
+
+
+https://www.simplilearn.com/tutorials/aws-tutorial/aws-iam
