@@ -1,0 +1,30 @@
+Parts of the cluster:
+
+#############################
+Kube-apiserver: 
+
+
+#############################
+ETCD: 
+Database that stores information in a key value format.
+
+
+#############################
+kube-scheduler: 
+Identifies the right node to place the container on based
+on the container resource requirements, the workernode capacity or any other 
+policies or constrains (taint, tolerations,node affinity rules, etc)
+
+
+#############################
+Controller-Manager:
+
+
+
+#############################
+CRI: Container Runtime interface in all the nodes.
+We have to install a CRI in all the nodes (master and workers) to run containers.
+ContainerD, rkt, Docker.
+
+#############################
+
