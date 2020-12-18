@@ -10,6 +10,9 @@ ALWAYS TAKE A BACKUP FIRST:
 2- Of /etc/fstab:
 	 cp /etc/fstab /root/fsbtab_BACKUP
 
-
 PARTPROBE: Run partprobe when you've created the partition to apply the changes
 in live if the partition was made in an alredy existing disk.
+
+Exercices:
+
+
