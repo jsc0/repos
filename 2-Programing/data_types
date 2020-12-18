@@ -1,0 +1,32 @@
+DATA TYPES:
+
+-----------------------------------------------
+Integers / int : Whole numbers, negative and positive
+
+-----------------------------------------------
+Floating point / float: Decimals, negative and positive
+
+-----------------------------------------------
+Stings /str: "" or '' Ordered sequence of characters. Can not be modified.
+Indexing, slicing, f formating, print formating
+Methods: .upper(), .lower(), .split()
+
+-----------------------------------------------
+Dictionary / dict: { } Key-Value pair. Can be modified (mutable). Can not be sorted. 
+Unordered. Can hold int, float, str, list, etc
+-----------------------------------------------
+Lists / list: [ ] Ordered sequence of objects. Can be modified (mutable)
+Methods: .append(), .pop(), .sort(), .reverse() 
+
+-----------------------------------------------
+Tuples / tup: ( ) Ordered immutable sequence of objects
+
+-----------------------------------------------
+Boolean / bool: True or false. Logical value
+
+-----------------------------------------------
+Set / set: Unordered collection of unique objects
+
+-----------------------------------------------
+
+
