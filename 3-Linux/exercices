@@ -4,7 +4,7 @@ Configure local storage:
 ######################################################
 ---List, create, delete partitions on MBR and GPT disks:
 
-ALWAYS TAKE A BACKUP FIRST:
+ALWAYS TAKE A BACKUP FIRST:!!!!!!!!!!!!!!!!!!!!!!!
 1- Of the MBR:
 	dd if=/dev/nvme0n1 of=/root/diskfile_BACKUP bs=1M count=1
 2- Of /etc/fstab:
@@ -14,5 +14,8 @@ PARTPROBE: Run partprobe when you've created the partition to apply the changes
 in live if the partition was made in an alredy existing disk.
 
 Exercices:
+--Create a primary partition with fdisk, mount it on /etc/fstab
+--Create a extended partition with fdisk, mount it on /etc/fstab
+--Create a Swap Partition, mount it into /etc/fstab
 
 
