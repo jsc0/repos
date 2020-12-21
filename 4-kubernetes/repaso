@@ -11,6 +11,8 @@ Environment variables, run command
 kubeconfig
 Resource limits
 
+Ingress
+
 jsonpath: 
 kubectl get nodes -o jsonpath='{.items[*].status.addresses[(@.type=="INTERNAL-IP")].address}'
 
