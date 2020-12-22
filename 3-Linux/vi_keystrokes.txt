@@ -7,6 +7,15 @@ Insert below & empty line:   o
 Insert above & empty line:   O
 Remove line & insert mode:  S
 
+Comment multiple lines:
+Control + v , then use arrow to select the chunck of code
+Shift + i  and type #
+Esc
+
+Uncomment multile lines:
+Control + v , then use arrow to select the chunck of code
+press x
+
 ####### Moving arround #########
 Beggining of line:  0   
 End of line:  $
