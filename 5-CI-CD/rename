@@ -1,4 +1,11 @@
+jenkins:
+admin
 f31488f2cd19fc38c6c8ca4c2e2ea2b4
 
+
+docker-host:
+ssh user:
+dockeradmin
+dockeradmin
 
 https://github.com/yankils/hello-world.git
