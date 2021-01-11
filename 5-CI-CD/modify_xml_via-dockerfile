@@ -74,6 +74,15 @@ ENV FINAL_PORT='port="8090'
 
 RUN sed -i -r 's/port="8080/port="8090/' /usr/local/tomcat/conf/server.xml
 
+RUN sed -i -r 's/<Valve className/<!--  <Valve className/' /usr/local/tomcat/webapps.dist/host-manager/META-INF/context.xml
+
+RUN sed -i -r 's/<Valve className/<!--  <Valve className/' /usr/local/tomcat/webapps.dist/manager/META-INF/context.xml
+
+RUN sed -i 's/0:0:0:0:0:0:0:1" \/>/0:0:0:0:0:0:0:1" \/> -->/' /usr/local/tomcat/webapps.dist/host-manager/META-INF/context.xml
+
+RUN sed -i 's/0:0:0:0:0:0:0:1" \/>/0:0:0:0:0:0:0:1" \/> -->/' /usr/local/tomcat/webapps.dist/manager/META-INF/context.xml
+
+
 
 RUN ["apt-get", "update"]
 RUN ["apt-get", "-y", "install", "vim"]
