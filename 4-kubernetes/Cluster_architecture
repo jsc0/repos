@@ -19,7 +19,7 @@ You can interact with it using POST API requests.
 
 #############################
 ETCD: Service --> port 2379
-Database that stores information in a key value format.Distributed, reliable, simple,segure
+Database that stores information in a key value format.Distributed, reliable, simple,secure
 and fast. Uses etcdctl command line.
 
 It stores information about Nodes, Pods, Configs, Secrets, Accounts, Roles, Bindings, others.
