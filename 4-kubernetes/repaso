@@ -10,7 +10,7 @@ Multi pod
 Environment variables,configmaps, secrets, run command 
 kubeconfig
 Resource limits
-CPU utilization
+CPU utilization --> metrics server
 Ingress
 
 jsonpath: 
