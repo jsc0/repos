@@ -7,16 +7,18 @@ rolling updates
 
 RBAC,Role binding, cluster role binding, etc
 Multi pod
-Environment variables, run command 
+Environment variables,configmaps, secrets, run command 
 kubeconfig
 Resource limits
-
+CPU utilization
 Ingress
 
 jsonpath: 
 kubectl get nodes -o jsonpath='{.items[*].status.addresses[(@.type=="INTERNAL-IP")].address}'
 
 
+Configmaps:
+https://matthewpalmer.net/kubernetes-app-developer/articles/ultimate-configmap-guide-kubernetes.html
 
-
+https://www.youtube.com/watch?v=N41ZwsORs_g&t=58s&ab_channel=SethJennings
 
