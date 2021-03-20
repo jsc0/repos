@@ -1,0 +1,7 @@
+
+RHCSA
+
+
+yum install bash-completion 
+yum -y install vim
+ip -c addr
