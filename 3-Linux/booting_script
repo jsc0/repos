@@ -1,0 +1,14 @@
+#!/bin/bash
+sudo -i
+yum update -y
+yum install -y bash-completion 
+yum install -y vim
+yum -y install nfs-utils
+systemctl enable --now nfs-server
+echo "alias ipa='ip -c addr'" >> ~/.bashrc
+hostnamectl set-hostname rhcsa
+echo 'export PS1="\e[0;31m[\u@\h \W]\$ \e[m "' >> ~/.bashrc
+
+
+## To check if nfs is installed
+## yum list installed |grep nfs
