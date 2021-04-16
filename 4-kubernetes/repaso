@@ -1,17 +1,20 @@
 https://github.com/kodekloudhub/kubernetes-metrics-server.git
 
-security context - capabilities
-NetworkPolicy
-Persistent volumes ################## URGENT TO RECHECK
-rolling updates
 
+
+Persistent volumes ################## URGENT TO RECHECK
 RBAC,Role binding, cluster role binding, etc
 Multi pod
-Environment variables,configmaps, secrets, run command 
 kubeconfig
+Environment variables,configmaps, secrets, run command 
 Resource limits
 CPU utilization --> metrics server
+Serrvices
 Ingress
+rolling updates
+security context - capabilities
+NetworkPolicy
+
 
 jsonpath: 
 kubectl get nodes -o jsonpath='{.items[*].status.addresses[(@.type=="INTERNAL-IP")].address}'
