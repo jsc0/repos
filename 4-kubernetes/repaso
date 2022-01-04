@@ -9,7 +9,7 @@ kubeconfig
 Environment variables,configmaps, secrets, run command 
 Resource limits
 CPU utilization --> metrics server
-Serrvices
+Services
 Ingress
 rolling updates
 security context - capabilities

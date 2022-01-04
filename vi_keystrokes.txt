@@ -77,3 +77,8 @@ Run a bash shell inside vi:  :bash!   --> tipe exit to return to vi
 
 Display filename:  Ctrl+g
 
+######## Bash ##########
+See the results in live stream:  -w    ---> watch:  kubectl get pods -w
+Grep a word in insensitive case:  kubectl describe deployment |grep -i image
+
+

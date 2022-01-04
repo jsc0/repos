@@ -14,3 +14,12 @@ kubectl replace -f nginx.yaml
 kubectl replace --force -f nginx.yaml
 
 kubectl apply -f nginx.yaml --> create, update or delete objects. 
+
+
+#############################################################
+
+kubectl run redis --image=redis --dry-run=client -o yaml > redis.yaml
+
+Print number of lines excluding headers:     kubectl get ns --no-headers |wc -l
+
+Get all resources of a ns:  kubect get all -n
