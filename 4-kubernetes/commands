@@ -23,3 +23,49 @@ kubectl run redis --image=redis --dry-run=client -o yaml > redis.yaml
 Print number of lines excluding headers:     kubectl get ns --no-headers |wc -l
 
 Get all resources of a ns:  kubect get all -n
+
+#############################################################
+Autocompletition and alias: 
+https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-linux/
+
+1-- Install Bash-Completion:     apt-get install bash-completion
+
+2-- Check if works, if not source it on your .bashrc or similar:
+    type _init_completion  --> If the command succeeds, you are already set, if not do:
+    
+    In your .bashrc or similar: source /usr/share/bash-completion/bash_completion
+
+    Reload your shell and check if works by typing:  type _init_completion
+
+3-- Enable k8s autocompletion: (In your .bashrc or similar)   
+    source <(kubectl completion bash)
+
+4-- Add Alias on your .bashrc or similar:
+    alias k='kubectl'
+    alias kg='kubectl get'
+    alias kgp='kubectl get pods'
+    alias kc='kubectl create'
+    alias ka='kubectl apply -f'
+    alias kdry='kubectl --dry-run=client'
+
+5-- Autocomplete: Add it to the end of .bashrc
+    complete -F __start_kubectl k
+    complete -F __start_kubectl kg
+    complete -F __start_kubectl kgp
+    etc, etc.
+
+6-- Source it: (to make the changes to work)
+    source ~/.bashrc
+	or
+    . ~/.bashrc    
+
+
+TO SOLVE:
+1- Get autocomplete for several alias: k --> autocomplete works, kgp doesn't work
+2- Get alias --dry-run=client -o yaml to work, like: kgp dry
+
+
+
+
+
+ 

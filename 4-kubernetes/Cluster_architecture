@@ -79,7 +79,7 @@ Load balances traffic between application components.
       
 Handles networking communications between nodes. Routes traffic. Writes firewall rules to the routing tables of each nodes to allow the traffic to be routed properly.
 
-You must always manually install the kubelet on the nodes nodes.
+You must always manually install the kubelet on the nodes.
 
 ps -aux |grep kubelet
 
