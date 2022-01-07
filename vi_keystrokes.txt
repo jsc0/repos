@@ -81,4 +81,12 @@ Display filename:  Ctrl+g
 See the results in live stream:  -w    ---> watch:  kubectl get pods -w
 Grep a word in insensitive case:  kubectl describe deployment |grep -i image
 
+Search for a word (highlighing it) and show me the rest too:
+kubectl describe pod purple |grep -iE "init cont|$" 
+
+
+
+
+
+
 

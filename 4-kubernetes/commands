@@ -64,6 +64,12 @@ TO SOLVE:
 1- Get autocomplete for several alias: k --> autocomplete works, kgp doesn't work
 2- Get alias --dry-run=client -o yaml to work, like: kgp dry
 
+#############################################################
+Metrics Server: 
+	git clone https://github.com/kodekloudhub/kubernetes-metrics-server
+	cd /root/kubernetes-metrics-server
+	kubectl -f .
+	
 
 
 
