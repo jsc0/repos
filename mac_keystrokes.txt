@@ -21,11 +21,3 @@ To stop it, cmd + shift + 5 again and Stop screen recording
 
 
 
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: node-role.kubernetes.io/master
-                operator: Exists
-           
