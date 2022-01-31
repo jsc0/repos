@@ -5,7 +5,9 @@ Get user into sudoers (to skip pass to became root)
 
 sudo visudo
 
-and add to the end:  cloud_user ALL=(ALL) NOPASSWD:ALL
+and add to the end:  
+
+cloud_user ALL=(ALL) NOPASSWD:ALL
 
 ###################################
 -- Change color to local user prompt (to cian):
@@ -17,7 +19,7 @@ export PS1="\e[1;36m[\u@\h \W]\$ \e[m "
 Get the root account: sudo -i
 
 Edit ~/.bashrc of the root account and add:
-export PS1="\e[0;31m[\u@\h \W]\$ \e[m "
+export PS1="\e[1;31m[\u@\h \W]\$ \e[m "
 
 save and exit
 
@@ -34,3 +36,11 @@ reboot
 
 
 GDm3)qC_}%3P.L/Un`-9e<g=rsMQne
+
+
+
+
+
+
+
+

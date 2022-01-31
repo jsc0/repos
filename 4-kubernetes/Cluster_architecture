@@ -56,6 +56,20 @@ times in a replication group.
 
 There are many more, like namespace-controller, serviceaccounts controller, enpoint controller, etc.
 
+#############################
+CoreDNS: Recommended DNS server since v1.12. Deployed as two PODS for redundancy
+as part of a Replicased within a Deployment.
+
+Its configuration file is a configmap (coredns). In this configmap you have a number
+of pluggins used for handling errors, reporting health,kubernetes plugin, monitoring metrics, cache, etc.
+
+The kubernetes plugin makes coredns work with k8s. Is where the TLD of the cluster is set,
+in this case cluster.local
+
+Any record that this DNS server can not solve is forwarded to /etc/resolve.conf
+
+When deployed it also creates a Service(kube-dns) to make it available to other components of the cluster. The IP of this service is added to the Kubelet as nameserver to the /etc/resolve.conf of all the PODs when are created.
+
 
 #############################
 CRI: Container Runtime interface in all the nodes.
@@ -64,7 +78,7 @@ ContainerD, rkt, Docker.
 
 
 ##########################################################
-Worker Nodes:
+Worker and control plan Nodes:
 
 ##########################################################
 kubelet: Service. Is the capitan in each ship.
@@ -83,16 +97,23 @@ You must always manually install the kubelet on the nodes.
 
 ps -aux |grep kubelet
 
+TROUBLESHOOTING:-----------------------------------------------------
+Configuration file:  /var/lib/kubelet/config.yaml
+
+kubeconfig file:  /etc/kubernetes/kubelet.conf
+	End point to api server: https://controlplane:6443
+
 #############################
-Kube-proxy: Service
+Kube-proxy: Takes care of the k8s Services. 
+Is a Daemonset that runs in all nodes, one per each node.
 
 Ensures that necesary rules are in place on the worker nodes to allow the containers 
 running on them to reach each other.
 
 Helps in enabling communications between services within the cluster.
 
-Process that run in each note in the k8s cluster. It's job is to look for new services and everytime a new service
-is created it creates the appropiate rules on each node to forward traffic to those services to the backend pods.
+Process that run in each node in the k8s cluster. It's job is to look for new services and everytime a new service
+is created, it creates the appropiate rules on each node to forward traffic to those services to the backend pods.
 One way to do this is by using iptables rules to forward traffic from one side to the other.
 
 #############################
