@@ -7,4 +7,6 @@ Terminator: (For mac keyboard running on ubuntu)
 
 
 
-
+Fix audio: get sudo -i
+sudo echo 1 > /sys/bus/pci/rescan
+sudo echo 1 > /sys/bus/pci/devices/0000\:02\:00.1/remove

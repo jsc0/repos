@@ -10,16 +10,16 @@ and add to the end:
 cloud_user ALL=(ALL) NOPASSWD:ALL
 
 ###################################
--- Change color to local user prompt (to cian):
-vi ~/.bashrc
-
-export PS1="\e[1;36m[\u@\h \W]\$ \e[m "
-
 -- Change color to root user prompt (to red):
 Get the root account: sudo -i
 
 Edit ~/.bashrc of the root account and add:
 export PS1="\e[1;31m[\u@\h \W]\$ \e[m "
+
+-- Change color to local user prompt (to cian):
+vi ~/.bashrc
+
+export PS1="\e[1;36m[\u@\h \W]\$ \e[m "
 
 save and exit
 
