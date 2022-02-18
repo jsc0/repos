@@ -1,0 +1,140 @@
+Parts of the cluster:
+
+##########################################################
+Master Nodes:
+
+##########################################################
+Kube-apiserver:  
+Primary management component on K8s.Responsible for orchestrating all operations within
+the cluster.
+
+It exposes the k8s API which is used by external users to perform management operations on the 
+cluster, as well as the various controllers to monitor the state of the cluster and make 
+necesary changes as required and by the worker nodes to communicate the server.
+
+When you run kubectl you are reaching kube-apiserver, which authenticates the request and
+validates it.It then retreives the data from etcd and responses back with the information.
+
+You can interact with it using POST API requests.
+
+#############################
+ETCD: Service --> port 2379
+Database that stores information in a key value format.Distributed, reliable, simple,secure
+and fast. Uses etcdctl command line.
+
+It stores information about Nodes, Pods, Configs, Secrets, Accounts, Roles, Bindings, others.
+
+Can be set up manually, wget https://...etcd.tar.gz. Then you have to configure etcd.service
+Or it's installed automatically by kubeadm when deploying the cluster, then etcd is a static
+pod.
+
+kubectl exec etcd-master -n kube-system -- sh -c "ETCDCTL_API=3 etcdctl get / --prefix --keys-only --limit=10 --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt  --key /etc/kubernetes/pki/etcd/server.key" 
+
+
+#############################
+kube-scheduler: 
+
+Identifies the right node to place the container on based on the container resource requirements, the workernode capacity or any other policies or constrains (taint, tolerations,node affinity rules, etc)
+
+Is only responsible for deciding which POD goes on which Node.Kubelet then places the POD
+on the Node.
+
+#############################
+Controller-Manager: Is a Daemon
+
+Process that continuously monitores the state of various components within the system
+and works towards bringing the whole system to the desired functioning state.
+
+Controllers that takes care of different areas. Continues looks out for the status of the
+cluster and remediate the situation when is necessary.
+
+The Node-Controller takes cares of nodes, they are responsible for onboarding new nodes
+to the cluster, handling situations where nodes become unavailable or gets destroyed.
+ 
+The Replicatio-Controller ensures that the desired number of containers are running at all
+times in a replication group.  
+
+There are many more, like namespace-controller, serviceaccounts controller, enpoint controller, etc.
+
+#############################
+CoreDNS: Recommended DNS server since v1.12. Deployed as two PODS for redundancy
+as part of a Replicased within a Deployment.
+
+Its configuration file is a configmap (coredns). In this configmap you have a number
+of pluggins used for handling errors, reporting health,kubernetes plugin, monitoring metrics, cache, etc.
+
+The kubernetes plugin makes coredns work with k8s. Is where the TLD of the cluster is set,
+in this case cluster.local
+
+Any record that this DNS server can not solve is forwarded to /etc/resolve.conf
+
+When deployed it also creates a Service(kube-dns) to make it available to other components of the cluster. The IP of this service is added to the Kubelet as nameserver to the /etc/resolve.conf of all the PODs when are created.
+
+
+#############################
+CRI: Container Runtime interface in all the nodes.
+We have to install a CRI in all the nodes (master and workers) to run containers.
+ContainerD, rkt, Docker.
+
+
+##########################################################
+Worker and control plan Nodes:
+
+##########################################################
+kubelet: Service. Is the capitan in each ship.
+
+Agent that runs on each node in a cluster. It listens for instructions from the 
+kube-apiserver and deploys or destroys containers on the nodes as required.
+
+Kube-apiserver periodically fetches status reports from the kubelet to monitor the 
+status of nodes and containers on them.
+
+Load balances traffic between application components.
+      
+Handles networking communications between nodes. Routes traffic. Writes firewall rules to the routing tables of each nodes to allow the traffic to be routed properly.
+
+You must always manually install the kubelet on the nodes.
+
+ps -aux |grep kubelet
+
+TROUBLESHOOTING:-----------------------------------------------------
+Configuration file:  /var/lib/kubelet/config.yaml
+
+kubeconfig file:  /etc/kubernetes/kubelet.conf
+	End point to api server: https://controlplane:6443
+
+#############################
+Kube-proxy: Takes care of the k8s Services. 
+Is a Daemonset that runs in all nodes, one per each node.
+
+Ensures that necesary rules are in place on the worker nodes to allow the containers 
+running on them to reach each other.
+
+Helps in enabling communications between services within the cluster.
+
+Process that run in each node in the k8s cluster. It's job is to look for new services and everytime a new service
+is created, it creates the appropiate rules on each node to forward traffic to those services to the backend pods.
+One way to do this is by using iptables rules to forward traffic from one side to the other.
+
+#############################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

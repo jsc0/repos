@@ -1,0 +1,64 @@
+Change gcroups to systemd on Docker daemon:
+https://stackoverflow.com/questions/43794169/docker-change-cgroup-driver-to-systemd
+
+0 -- Check if is pointing to cgroups:
+docker info | grep -i cgroup
+
+1 -- Stop docker: systemctl stop docker
+
+2 -- Edit:  /etc/systemd/system/multi-user.target.wants/docker.service   and add:
+
+--exec-opt native.cgroupdriver=systemd
+
+	original line: 
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+	How it has to be:
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock --exec-opt native.cgroupdriver=systemd
+
+3 -- Create the file /etc/docker/daemon.json if doesn't exist and add:
+{
+  "exec-opts": ["native.cgroupdriver=systemd"]
+}
+
+4 -- Start docker daemon:
+systemctl start docker
+
+5 -- Reload daemon units:
+systemctl daemon-reload
+
+6 -- Check that now have changed to systemd
+docker info | grep -i cgroup
+
+you have to see:
+ Cgroup Driver: systemd
+ Cgroup Version: 1
+
+------------------------------------------------------------------------
+
+If all is fine the kubelet should be able to start.
+
+If you already ran the kubeadm init command you can reverse it back with reset:
+kubeadm reset
+
+This will remove all the installation and will let you to run again kubeadm init.
+
+------------------------------------------------------------------------
+Interesting commands:
+
+journalctl -xeu kubelet
+
+docker ps -a | grep kube | grep -v pause
+
+docker logs CONTAINERID
+
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+
+kubeadm join 172.31.19.223:6443 --token thpfx7.t7t36u7we0064it1 \
+	--discovery-token-ca-cert-hash sha256:9dea056e7d91a4c6790c10a5b471cb4613d9a71e9b9a4f1308e28439224f800b
+
+

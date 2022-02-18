@@ -1,0 +1,61 @@
+https://github.com/kodekloudhub/kubernetes-metrics-server.git
+
+New Exam: 17 questions -------------------------------------------------------
+
+-- Resize PVC and record the change:    
+https://community.kodekloud.com/t/how-to-edit-a-pvc-claim-size-and-record-the-change-please-share-the-command/18647/2
+https://www.runlevl4.com/kubernetes/patching-kubernetes-resources#more-476
+
+k patch pvc dynamic-pvc -p '{"spec":{"resources":{"requests":{"storage":"70Mi"}}}}' --record
+
+-- Network policy by using domain, or more tricky options, not using pod labels
+
+-- Ingress search for tricky questions and test if works with curl
+
+-- Backup/restore ETCD with certificates in other directories, check that have worked
+
+export do="--dry-run=client -o yaml"
+
+~/.vimrc
+set tabstop=2
+set expandtab
+set shiftwidth=2
+
+-- Check if the SA "processor" have permissions to create secrets:
+k -n project-hamster auth can-i create secrets --as system:serviceaccount:project-hamster:processor
+
+-- Run command and delete the pod after it:
+kubectl run busybox --image=busybox -it --rm --restart=Never -- /bin/sh -c 'echo hello world'
+You have to see:
+hello world
+pod "busybox" deleted
+
+-- RBAC checks:
+kubectl auth can-i create secrets --namespace project-hamster --as system:serviceaccount:project-hamster:processor
+
+OLD EXAM: ----------------------------------------------------
+
+Persistent volumes ################## URGENT TO RECHECK
+RBAC,Role binding, cluster role binding, etc
+Multi pod
+kubeconfig
+Environment variables,configmaps, secrets, run command 
+Resource limits
+CPU utilization --> metrics server
+Services
+Ingress
+rolling updates
+security context - capabilities
+NetworkPolicy
+
+
+jsonpath: 
+kubectl get nodes -o jsonpath='{.items[*].status.addresses[(@.type=="INTERNAL-IP")].address}'
+
+
+Configmaps:
+https://matthewpalmer.net/kubernetes-app-developer/articles/ultimate-configmap-guide-kubernetes.html
+
+https://www.youtube.com/watch?v=N41ZwsORs_g&t=58s&ab_channel=SethJennings
+
+
