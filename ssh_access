@@ -19,7 +19,8 @@ export PS1="\e[1;31m[\u@\h \W]\$ \e[m "
 -- Change color to local user prompt (to cian):
 vi ~/.bashrc
 
-export PS1="\e[1;36m[\u@\h \W]\$ \e[m "
+export PS1="\e[0;36m[\u@\h \W]\$ \e[m "
+echo 'export PS1="\e[0;36m[\u@\h \W]\$ \e[m "' >> ~/.bashrc
 
 save and exit
 
