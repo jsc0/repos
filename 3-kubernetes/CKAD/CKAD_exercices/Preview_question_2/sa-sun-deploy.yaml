@@ -1,0 +1,29 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    creationTimestamp: "2022-01-05T13:51:06Z"
+    name: default
+    namespace: sun
+    resourceVersion: "3945"
+    uid: 0e4516ba-ef44-42a9-b3e9-1763b301e31f
+  secrets:
+  - name: default-token-tt6sr
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"ServiceAccount","metadata":{"annotations":{},"name":"sa-sun-deploy","namespace":"sun"}}
+    creationTimestamp: "2022-01-05T13:51:07Z"
+    name: sa-sun-deploy
+    namespace: sun
+    resourceVersion: "3956"
+    uid: bad347ee-b7e8-4f9b-bd48-60a1cc87c381
+  secrets:
+  - name: sa-sun-deploy-token-c65hw
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
