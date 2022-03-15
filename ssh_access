@@ -39,6 +39,25 @@ reboot
 GDm3)qC_}%3P.L/Un`-9e<g=rsMQne
 
 
+####################################
+Kubectl Completion && Alias/exports + prompt colour
+
+
+cp ~/.bashrc bashrc_backup
+
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+
+echo 'alias k=kubectl' >>~/.bashrc
+echo 'complete -F __start_kubectl k' >>~/.bashrc
+
+echo "export do='--dry-run=client -oyaml'" >> ~/.bashrc
+echo "export cha='kubectl config set-context --current '" >> ~/.bashrc
+echo "export name='kubectl config get-contexts '" >> ~/.bashrc
+
+echo 'export PS1="\e[0;36m[\u@\h \W]\$ \e[m"' >> ~/.bashrc
+
+source ~/.bashrc
+
 
 
 
