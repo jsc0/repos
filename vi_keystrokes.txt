@@ -8,16 +8,52 @@ Insert above & empty line:   O
 Remove line & insert mode:  S
 
 Comment multiple lines:
-Control + v , then use arrow to select the chunck of code
+Control + v , then use arrow to select the chunk of code
 Shift + i  and type #
 Esc
 
-Uncomment multile lines:
-Control + v , then use arrow to select the chunck of code
+Uncomment multiple lines:
+Control + v , then use arrow to select the chunk of code
 press x
 
-####### Moving arround #########
-Beggining of line:  0   
+######## INDENTATION ##########
+IN NO insert mode:
+	0 (zero) goes to the beginning of the line
+	shift + >>   --> indents 8 spaces by default
+	:set sw=2    --> which is the same than -->   :set shiftwidth=2
+	v or shift + v or control + v and select the lines with arrow up or down
+	shift + >    --> will indent 2 spaces to all the selected lines
+
+More:
+5>>  --> indent 5 lines
+5==  --> Re-indent 5 lines
+
+
+https://www.youtube.com/watch?v=M-IqFOjY7Pk&ab_channel=TheFrugalComputerGuy
+
+See hidden characters -->   :set list
+	dollar sign ($) means end of line 
+	^I means tab character
+
+
+######## SPLIT WINDOW ##########
+
+HORIZONTALLY:
+:set sp
+
+Control + ww  --> change between windows
+
+:q   --> to close one of the windows.
+
+
+VERTICALLY:
+:vsp
+
+control + w + s to split it again
+control + w + v to split it again 
+
+####### Moving around #########
+Beginning of line:  0   
 End of line:  $
 Next word:  w   (delimited by spaces, tabs, or punctuation)
 Next word:  W   (delimited tabs or empty spaces)
@@ -57,7 +93,7 @@ Change 5 leters: 5cl
 Search forward: /  ---->  tipe n for next word and N to the previous word
 Search backward:  ?   n or N works as well.
 
-####### Ex Mode (when you type : ) ##########
+####### FIND AND SUBSTITUTE.  Ex Mode (when you type : ) ##########
 :g/word   Will highlight the word as many times is appearing in the text
 :s/polla/culo  Substitutes first occurence of polla for culo
 :g/polla/s /culo/g Substitutes every occurrence of polla for culo in the entire file
