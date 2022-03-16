@@ -42,6 +42,8 @@ GDm3)qC_}%3P.L/Un`-9e<g=rsMQne
 ####################################
 Kubectl Completion && Alias/exports + prompt colour
 
+------------------------------------
+
 
 cp ~/.bashrc bashrc_backup
 
