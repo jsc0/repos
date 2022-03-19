@@ -3,16 +3,10 @@ items:
 - apiVersion: v1
   kind: Service
   metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"id":"earth-2x3-api-svc"},"name":"earth-2x3-api-svc","namespace":"earth"},"spec":{"ports":[{"name":"4546-80","port":4546,"protocol":"TCP","targetPort":80}],"selector":{"id":"earth-2x3-api"},"type":"ClusterIP"}}
-    creationTimestamp: "2022-01-05T13:51:07Z"
     labels:
       id: earth-2x3-api-svc
     name: earth-2x3-api-svc
     namespace: earth
-    resourceVersion: "3955"
-    uid: 9a3decf3-08df-4975-ac9d-e8014a57f6c0
   spec:
     clusterIP: 10.106.179.41
     clusterIPs:
@@ -32,13 +26,10 @@ items:
     type: ClusterIP
   status:
     loadBalancer: {}
+
 - apiVersion: v1
   kind: Service
   metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"id":"earth-2x3-web-svc"},"name":"earth-2x3-web-svc","namespace":"earth"},"spec":{"ports":[{"name":"4545-80","port":4545,"protocol":"TCP","targetPort":80}],"selector":{"id":"earth-2x3-web"},"type":"ClusterIP"}}
-    creationTimestamp: "2022-01-05T13:51:07Z"
     labels:
       id: earth-2x3-web-svc
     name: earth-2x3-web-svc
@@ -65,12 +56,9 @@ items:
   status:
     loadBalancer: {}
 - apiVersion: v1
+
   kind: Service
   metadata:
-    annotations:
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"id":"earth-3cc-web"},"name":"earth-3cc-web","namespace":"earth"},"spec":{"ports":[{"name":"6363-80","port":6363,"protocol":"TCP","targetPort":80}],"selector":{"id":"earth-3cc-web"},"type":"ClusterIP"}}
-    creationTimestamp: "2022-01-05T13:51:07Z"
     labels:
       id: earth-3cc-web
     name: earth-3cc-web
