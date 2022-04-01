@@ -1,0 +1,70 @@
+ssh-copy-id -i ~/.ssh/id_rsa.pub cloud_user@3.251.79.168
+
+####################################
+Get user into sudoers (to skip pass to became root)
+
+sudo visudo
+
+and add to the end:  
+
+cloud_user ALL=(ALL) NOPASSWD:ALL
+
+###################################
+-- Change color to root user prompt (to red):
+Get the root account: sudo -i
+
+Edit ~/.bashrc of the root account and add:
+export PS1="\e[1;31m[\u@\h \W]\$ \e[m "
+
+-- Change color to local user prompt (to cian):
+vi ~/.bashrc
+
+export PS1="\e[0;36m[\u@\h \W]\$ \e[m "
+echo 'export PS1="\e[0;36m[\u@\h \W]\$ \e[m "' >> ~/.bashrc
+
+save and exit
+
+####################################
+Change hostname:
+
+sudo hostnamectl set-hostname controlplane
+
+Edit host file and change the old name for the newone:
+sudo vi /etc/hosts
+
+reboot
+
+
+
+GDm3)qC_}%3P.L/Un`-9e<g=rsMQne
+
+
+####################################
+Kubectl Completion && Alias/exports + prompt colour
+
+------------------------------------
+
+
+cp ~/.bashrc bashrc_backup
+
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+echo 'alias k=kubectl' >>~/.bashrc
+echo 'complete -F __start_kubectl k' >>~/.bashrc
+
+
+echo "export do='--dry-run=client -oyaml'" >> ~/.bashrc
+echo "export cha='kubectl config set-context --current --namespace '" >> ~/.bashrc
+echo "export name='kubectl config get-contexts'" >> ~/.bashrc
+
+echo 'export PS1="\e[0;36m[\u@\h \W]\$ \e[m"' >> ~/.bashrc
+
+
+source ~/.bashrc
+
+
+
+
+
+
+
+

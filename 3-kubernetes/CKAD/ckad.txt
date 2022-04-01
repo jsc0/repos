@@ -1,12 +1,18 @@
+
+Exam:
+
+
+
+
 1- Resources and request CPU. x? Limit namespace memory. Key word: constraint
 2- 7% Create Cronjob 2  x
 3- 4% API deprecation. 
 4- 7% Canary deployment. 
 5- 4% Modify deployment- security Context. x
 6- 8% Deployment + environment variable x
-7- 4% Job. -------- to check
+7- 4% Job. -------- to check b
 8- 7% Update deployment - check failing logs. x
-9- 4% Config map x
+9- 4% Config map using a command.  x
 10- 7% Deployment update/rollback x
 11- 4% Pod cpu request memory x
 12- 7% Docker build
@@ -19,8 +25,12 @@
 
 ————TO DO for the exam:————
 - Exports:
-cp 
-echo '' >>
+cp ~/.bashrc bashrc_backup
+echo 'export do="--dry-run=client -oyaml"' >> ~/.bashrc
+echo 'export cha="kubectl config set-context --current --namespace "' >> ~/.bashrc
+echo 'export name="kubectl config get-contexts "' >> ~/.bashrc
+source ~/.bashrc
+
 
 
 Limit namespace memory
