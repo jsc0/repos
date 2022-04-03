@@ -33,7 +33,7 @@ source ~/.bashrc
 
 
 
-Limit namespace memory
+Limit namespace memory constraint:
 https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-constraint-namespace/
 
 
