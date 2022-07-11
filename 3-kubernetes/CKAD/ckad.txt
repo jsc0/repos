@@ -4,7 +4,7 @@ Exam:
 
 
 
-1- Resources and request CPU. x? Limit namespace memory. Key word: constraint
+1- 7% Resources and request CPU. x? Limit namespace memory. Key word: constraint
 2- 7% Create Cronjob 2  x
 3- 4% API deprecation. 
 4- 7% Canary deployment. 
@@ -14,23 +14,28 @@ Exam:
 8- 7% Update deployment - check failing logs. x
 9- 4% Config map using a command.  x
 10- 7% Deployment update/rollback x
-11- 4% Pod cpu request memory x
+11- 4% Pod cpu request memory. maxUnavailable: "2", maxSurge: "5%"  x
 12- 7% Docker build
 13- 4% Inject secret in Pod x
 14- 8% Fix pod with liveness ------- to check
 15- 7% Scale and expose app x
 16- 4% Service Account, update depl. x
-17- 7% network policies. Already created, you can not modify them, just modify the pod to be able to send and receive with db and web pods. Try to add as labels into the proper pod the pod selector match labels of the netpols.
+17- 7% network policies. Already created, you can not modify them, just modify the pod to be able to send and receive with db and web pods. Try to add the labels into the proper pod the pod selector match labels of the netpols.
 
 
 ————TO DO for the exam:————
 - Exports:
+
 cp ~/.bashrc bashrc_backup
+echo '#export PS1="\e[0;36m[\u@\h \W]\$ \e[m"' >> ~/.bashrc
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+echo 'alias k=kubectl' >>~/.bashrc
+echo 'complete -F __start_kubectl k' >>~/.bashrc
 echo 'export do="--dry-run=client -oyaml"' >> ~/.bashrc
 echo 'export cha="kubectl config set-context --current --namespace "' >> ~/.bashrc
 echo 'export name="kubectl config get-contexts "' >> ~/.bashrc
 source ~/.bashrc
-
+clear
 
 
 Limit namespace memory constraint:
@@ -42,3 +47,47 @@ https://www.google.com/url?client=internal-element-cse&cx=013288817511911618469:
 Resource quota exercise:
 640 maximum
 320
+
+
+-------------------------------------------------------------------------
+
+1- 7% Resources and request CPU. x? Limit namespace memory. Key word: constraint
+2- 7% Create Cronjob 2  x
+5- 4% Modify deployment- security Context. x
+6- 8% Deployment + environment variable x
+8- 7% Update deployment - check failing logs. x
+9- 4% Config map using a command.  x
+11- 4% Pod cpu request memory. maxUnavailable: "2", maxSurge: "5%"  x
+13- 4% Inject secret in Pod x
+16- 4% Service Account, update depl. x
+
+7+7+4+8+7+4+4+4+4
+
+Score= 49
+
+------------
+Failed / Not done:
+1- 7% Resources and request CPU. x? Limit namespace memory. Key word: constraint
+7- 4% Job. -------- to check b
+10- 7% Deployment update/rollback x
+14- 8% Fix pod with liveness ------- to check
+15- 7% Scale and expose app x
+
+3- 4% API deprecation. 
+4- 7% Canary deployment.
+12- 7% Docker build
+17- 7% network policies. Already created, you can not modify them, just modify the pod to be able to send and receive with db and web pods. Try to add the labels into the proper pod the pod selector match labels of the netpols.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

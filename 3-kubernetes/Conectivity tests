@@ -1,0 +1,40 @@
+
+k8s test conectivity commands:
+
+#### NetCat command from the origin pod cli:
+1 - Get the IP of the destiny svc/pod: k get pod -owide / k get svc
+2 - Get into the origin Pod:
+	k exec -it webapp-color -- sh
+3   Run netcat test:
+	nc -z -v <destiny_svc> <port>
+	nc -z -v secure-service 80
+
+What you will see:
+
+If there is NO conectivity: You will see nothing, you will need to ctrl + c to leave the command.
+
+If there IS connectivity: You will see a message saying that is open:
+
+/opt # nc -z -v secure-service 80
+secure-service (10.102.141.135:80) open
+
+k run tmp --restart=Never --rm -i --image=nginx:alpine -- curl 10.0.0.67
+
+k -n mars run tmp --restart=Never --rm -i --image=nginx:alpine -- curl -m 5 manager-api-svc:4444
+
+
+
+bc -l  --> to get a lot of decimals
+
+
+kubectl proxy 8001&
+
+curl localhost:8001/apis/batch
+
+--runtime-config=rbac.authorization.k8s.io/v1alpha1
+
+
+for i in `seq 1 3`; do kubectl run nginx$i --image=nginx -l app=v1 ; done
+
+'while true; do echo hello; sleep 10;done' 
+

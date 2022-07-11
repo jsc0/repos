@@ -1,0 +1,221 @@
+
+######### Docker run , expose ports , env var:
+docker run -p 38282:8080 kodekloud/simple-webapp:blue
+
+-p = Publish list. Publish a container port to the host
+38282 = Port published on the HOST
+8080 = Port exposed on the container
+
+We map port 8080 on the container to the 38282 on the host
+
+
+-------- docker ps
+0.0.0.0:38080->8080/tcp
+
+Ports Published on host:  38080 in this example
+0.0.0.0:38080->8080/tcp
+
+Port exposed on the container: 8080 in this example
+The one in the right after -> 
+
+--------- Add the env var APP_COLOR=blue:
+
+docker run -d -p 38282:8080 --name blue-app -e APP_COLOR=blue kodekloud/simple-webapp
+
+--------- Run command when creating the container
+docker run -d ubuntu sleep 1000
+
+########## Inspect the env var of a running container:
+
+docker inspect name_of_the_container or id_of_the_container 
+
+docker inspect 2f93043f3837
+
+docker inspect (image)
+
+########## See the env var using exec: from the image mysql-db
+docker exec mysql-db env
+
+########## Dockerfile:
+
+CMD: Command and arguments to be executed when the container initiates from an image.
+Can be overridden if you pass a command or argument when executing docker run.
+
+ENTRYPOINT: The same than CMD but commands and arguments provided can NOT be overridden.
+
+CMD ["/home/hello.py"]
+ENTRYPOINT ["python"] 
+
+Default application mode of container would be "python".
+If NO other filename is provided as argument to it then it will execute /home/hello.py
+
+########## Link two containers between them:
+docker run -d --name=clickcounter --link redis:redis -p 8085:5000 kodekloud/click-counter
+
+########## Docker compose: 
+You add in one single yaml several containers and it's specs. Then you call that yaml with docker run .yaml when you want to create all the containers inside it.
+
+You have to create a yaml specifically with this name: docker-compose.yml
+
+redis:
+  image: redis:alpine
+clickcounter:
+  image: kodekloud/click-counter
+  ports:
+  - 8085:5000
+
+Then run: (in the folder in which you have created docker-compose.yml )
+docker-compose up -d --> detach if you want
+
+If you want to make changes you can create the version 2 of the document, by specifiying:
+
+version: 2
+services:
+  redis:
+    image: redis:alpine
+  clickcounter:
+    image: kodekloud/click-counter
+    ports:
+    - 8085:5000
+
+########## Docker Registry:  You can push and pull images to it
+
+docker run nginx  --> This will pull nginx from the default registry.
+
+-- The full name of the image is: nginx/nginx.
+   The first nginx is the user account
+   The second nginx is the image repository.
+
+If you only specify one name only (nginx), docker will asume that the user account name is the same than the image (nginx in this example). 
+
+
+-- Default registry: docker.io (docker hub).
+   If you don't specify nothing will pull from it.
+
+There are several public registries, gcr.io (google), etc
+
+-- Private registry: Using cloud providers
+   You need to log in and use credentials to access it.
+
+docker login private-registry.io
+Username: registry-user
+Password:
+
+Now you can use it to run images,etc:  
+docker run private-registry.io/my_apps/internal-app
+
+-- Private registry: On prem registry.
+   You can use the image: registry:2
+   docker run -d -p 5000:5000 --name my-registry registry:2
+
+Another example setting the restart policy to always:
+docker run -d -p 5000:5000 --restart=always --name my-registry registry:2
+
+Push image to it:
+
+1- Tag the image: docker image tag my-image localhost:5000/my-image
+2- Push the image: docker push localhost:5000/my-image
+
+Check the images inside the registry:2 container:
+curl -X GET localhost:5000/v2/_catalog
+
+
+Pull the image:
+docker pull localhost:5000/my-image
+docker pull 192.168.56.100:5000/my-image
+
+
+########## Docker Storage:
+docker run -v /opt/data:/var/lib/mysql -d --name mysql-db mysql
+
+/opt/data --> local host
+/var/lib/mysql --> container
+
+This reads the content inside the db (there is no such a table)
+docker exec mysql-db mysql -pdb_pass123 -e 'use foo; select * from myTable'
+
+
+########## Docker networks:
+docker network ls
+bridge network is the default one
+
+-- Get the network configured in a container:
+docker inspect container_name  |grep -i network  --> Look for: Networks 
+
+-- Inspect the network bridge
+docker network inspect bridge
+
+Attach container to the none network:
+docker run -d --name alpine-2 --network=none alpine
+
+-- Create network:
+docker network create wp-mysql-network -d bridge --gateway 182.18.0.1 --subnet 182.18.0.1/24
+
+Create container and attach it to the new network and more stuff:
+docker run -d --name mysql-db --network wp-mysql-network -e MYSQL_ROOT_PASSWORD=db_pass123 mysql:5.6
+
+
+-- Last exercise course:
+docker run -d --name webapp -p 38080:8080 -e DB_Host=mysql-db -e DB_Password=db_pass123 --network=wp-mysql-network --link mysql-db:mysql-db kodekloud/simple-webapp-mysql
+
+
+########## Remove all running containers or all images:
+Remove all running containers:
+docker stop $(docker ps -aq)
+
+Remove all docker images
+docker rmi $(docker images -aq)
+
+
+########## Docker start
+
+To start an already stopped container:
+
+Get the container id or name: docker ps -a
+			      docker container ls -a
+
+Start it:
+
+docker start id/name
+
+Tip:
+Run before the container with /bin/ash  (yes ASH): docker run -it alpine /bin/ash
+ 
+Will get you inside the container, create a test.txt file and exit the container.
+
+With the container in Exited status you can start it again, you will find the 
+test.txt file inside it. /bin/ash will wait for a command so the container will 
+be in Running status, docker ps will show it. docker exec id_container ls
+
+
+########## Commands:
+
+-- Build image with tag "webapp-color:lite" from the content of local directory (.)
+docker build -t webapp-color:lite .
+
+-- Run an instance of ubuntu with sleep 1000:
+docker run -d ubuntu sleep 1000
+
+-- Run an instance of webapp-color, name it "my-app",publish host port 8282 and container port 8080:
+ 
+docker run -d --name my-app -p 8282:8080 webapp-color
+
+-- Get the OS version of an image (python:3.6):
+docker run python:3.6 cat /etc/*release*
+
+-- Run docker registry:
+docker run -d -p 5000:5000 --restart=always --name my-registry registry:2
+
+
+-- Remove all the images: (careful with this)
+
+docker image prune -a  (will ask for confirmation)
+
+
+
+
+
+
+
+
+
