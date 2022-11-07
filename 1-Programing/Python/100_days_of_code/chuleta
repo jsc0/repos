@@ -18,4 +18,10 @@ A = 10
 A_str = str(A)
 print("The value of A is: " + A_str)
 
+Exercise convert:
+TWO = input("Type two digits: ")
 
+FIRST = int(TWO[0])
+SECOND = int(TWO[1])
+
+print(FIRST ++ SECOND)
