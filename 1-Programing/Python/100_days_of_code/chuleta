@@ -1,0 +1,21 @@
+
+--- Input / Print: Type something in the keyboard and show it:
+
+print(input("What is your name: "))
+
+--- See / Convert datatypes:
+
+See:
+A = 10
+print(type(A)) --> this will give you:  <class 'int'>
+
+A = "John"
+print(type(A)) --> this will give you:  <class 'str'>
+
+
+Convert:
+A = 10
+A_str = str(A)
+print("The value of A is: " + A_str)
+
+
