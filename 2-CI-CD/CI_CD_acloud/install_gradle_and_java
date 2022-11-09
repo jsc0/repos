@@ -1,0 +1,44 @@
+Installing last versions java and gradle:
+
+Get a Centos 8
+
+1 -- Install java first:  sudo dnf install java-11-openjdk-devel
+	And check if is installed:  java -version
+2 -- Get it into your path: 
+	sudo vi /etc/profile.d/java.sh
+		JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+	source /etc/profile.d/java.sh
+3 -- Check that works: echo $JAVA_HOME
+
+4 -- Download last Gradle version:
+	wget https://services.gradle.org/distributions/gradle-7.5.1-bin.zip
+
+
+5 -- Create,move,unzip:
+	sudo mkdir /opt/gradle
+	sudo mv gradle-7.5.1-bin.zip /opt/gradle/
+	sudo unzip gradle-7.5.1-bin.zip 
+
+6 -- Add it into your path:
+	sudo vi /etc/profile
+		export PATH=$PATH:/opt/gradle/gradle-7.5.1/bin
+	source /etc/profile
+	
+7 -- Check that works:
+	gradle -v 
+
+8 -- Create a folder for your project:
+	mkdir ~/my-project
+	cd ~/my-project
+
+9 -- Gradle Wrapper: Create a new build in the new directory:
+	gradle init  --> you have to run this the first time, this will create several files.
+
+	gradle wrapper --> once you ran gradle init you can run this command, no idea what this does.
+
+
+10 -- Run: 
+	./gradlew build  --> again, no f. idea what I'm doing.
+	
+
+

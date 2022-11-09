@@ -10,8 +10,7 @@ A = 10
 print(type(A)) --> this will give you:  <class 'int'>
 
 A = "John"
-print(type(A)) --> this will give you:  <class 'str'>
-
+print(type(A)) --> this will give you:  <class 'str'
 
 Convert:
 A = 10
@@ -25,3 +24,18 @@ FIRST = int(TWO[0])
 SECOND = int(TWO[1])
 
 print(FIRST ++ SECOND)
+
+
+Weight / (height * height)
+
+-- LISTS:
+- Position of the index: print(states_of_america[2]) --> shows the 3rd item of the lists
+	print(states_of_america[-1]) --> will show you the last item of the list
+	
+- Change items on the list:  states_of_america[4] =  AriSona  --> change Arizona for AriSona
+
+- Append a single item: states_of_america.append(“PollaLand”) --> is appended to the end of the list
+	states_of_america.append([“PollaLand”, “Ojeteland”])  --> add several items
+
+- 
+
