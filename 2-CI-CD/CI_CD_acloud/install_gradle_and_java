@@ -41,4 +41,19 @@ Get a Centos 8
 	./gradlew build  --> again, no f. idea what I'm doing.
 	
 
+11 -- Create a build. This haven't worked. Create the file build.gradle in the root of the folder's
+project and paste this (the build logic):
+
+	task sayHello << {
+	println 'Hello, World'
+}
+
+task anotherTask << {
+	println 'This is another task'
+}
+
+UPDATE: The build.gradle is in: my-project/app
+
+
+
 
