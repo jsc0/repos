@@ -1,6 +1,7 @@
 Terminator: (For mac keyboard running on ubuntu)
 
 -- Split terminal horizontally:  alt+control + o
+-- Split terminal vertically:  shift + control + e
 
 -- Broadcast all:  command + g
 -- Ungrup all:    command+shift + g 
