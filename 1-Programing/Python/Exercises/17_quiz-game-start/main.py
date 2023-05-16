@@ -4,27 +4,22 @@ from quiz_brain import QuizBrain
 
 question_bank = []  # this will be a list of question Objects
 
+# Iterate all the questions in data.py.Separate the questions and the answers,initialize the Object new_question by
+# passing in the questions and answers into the __init__ constructor and store every object inside question_bank
 for question in question_data:
-    question_text = question["text"]
-    question_answer = question["answer"]
+    question_text = question["question"]
+    question_answer = question["correct_answer"]
     new_question = Question(question_text, question_answer)
     question_bank.append(new_question)
+# In the above code we do this to convert the data coming from data.py to Objects which will have the data as fail
+# proof, easy to access and will have the autofill thing among other benefits.
 
-# In the above code we do this to convert the data coming from data.py to Objects which will have the data in a fail
-# proof and will have an easy way to work by the autofill thing.
-
+# We create the quiz Object from QuizBrain Class
 quiz = QuizBrain(question_bank)
-quiz.next_question()
+# print(question_bank)
 
-print(question_bank[2].text)
+while quiz.still_has_questions():
+    quiz.next_question()
 
-
-
-
-
-
-
-
-
-#new_q = Question("Pollas", "En vinagre")
-#print(new_q.text, new_q.answer)
+print("You've completed the Quiz")
+print(f"Your final score was: {quiz.score}/{quiz.question_number}")
