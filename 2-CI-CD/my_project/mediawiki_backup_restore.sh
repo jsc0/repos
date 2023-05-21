@@ -8,11 +8,8 @@ DATABASE_CONTAINER="mariadb"
 BACKUP_DIR="/path/to/backup/directory"
 MEDIAWIKI_DIR="/var/www/html"
 DB_BACKUP_FILE="mediawiki_backup.sql"
-ENCRYPTED_BACKUP_FILE="mediawiki_backup.sql.enc"
+ENCRYPTED_BACKUP_FILE="mediawiki_backup.sql.gpg"
 GIT_REPO_DIR="/path/to/your/git/repository"
-
-# AWS KMS key ID for encryption
-KMS_KEY_ID="your-kms-key-id"
 
 # Function to backup the database
 function backup_database {
@@ -31,8 +28,15 @@ function backup_files {
 # Function to encrypt the backup file
 function encrypt_backup {
     echo "Encrypting the backup file..."
-    aws kms encrypt --key-id $KMS_KEY_ID --plaintext fileb://$BACKUP_DIR/$DB_BACKUP_FILE --output text --query CiphertextBlob > $BACKUP_DIR/$ENCRYPTED_BACKUP_FILE
+    gpg --output $BACKUP_DIR/$ENCRYPTED_BACKUP_FILE --encrypt --recipient "recipient@example.com" $BACKUP_DIR/$DB_BACKUP_FILE
     echo "Backup file encrypted."
+}
+
+# Function to decrypt the backup file
+function decrypt_backup {
+    echo "Decrypting the backup file..."
+    gpg --output $BACKUP_DIR/$DB_BACKUP_FILE --decrypt $BACKUP_DIR/$ENCRYPTED_BACKUP_FILE
+    echo "Backup file decrypted."
 }
 
 # Function to commit and push backup to GitHub
@@ -79,6 +83,7 @@ case $choice in
         push_to_github
         ;;
     2)
+        decrypt_backup
         restore_database
         restore_files
         ;;
@@ -91,4 +96,3 @@ esac
 
 echo ""
 echo "Process completed."
-
