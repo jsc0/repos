@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=your_root_password
+      - MYSQL_DATABASE=mediawiki
+      - MYSQL_USER=wikiuser
+      - MYSQL_PASSWORD=wikipassword
+    volumes:
+      - db_data:/var/lib/mysql
+
+  mediawiki:
+    image: mediawiki:latest
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+    environment:
+      - MEDIAWIKI_DB_HOST=db
+      - MEDIAWIKI_DB_NAME=mediawiki
+      - MEDIAWIKI_DB_USER=wikiuser
+      - MEDIAWIKI_DB_PASSWORD=wikipassword
+    volumes:
+      - mediawiki_data:/var/www/html
+
+volumes:
+  db_data:
+  mediawiki_data:

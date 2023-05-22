@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    volumes:
+      - /Users/joaquim/Documents/docker/wiki/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+
+  wikimedia:
+    image: mediawiki:latest
+    container_name: wikimedia
+    volumes:
+      - /Users/joaquim/Documents/docker/wiki/data:/var/www/html
+    ports:
+      - 80:80
+    environment:
+      MYSQL_DATABASE: mediawiki
+      MYSQL_USER: mediawiki
+      MYSQL_PASSWORD: password

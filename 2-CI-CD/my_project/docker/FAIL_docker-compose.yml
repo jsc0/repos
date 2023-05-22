@@ -1,0 +1,35 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8080:80
+    volumes:
+      - /Users/joaquim/Documents/docker/wiki/nginx:/usr/share/nginx/html
+      - /Users/joaquim/Documents/docker/wiki/nginx:/etc/nginx
+    depends_on:
+      - php
+    networks:
+      - mynetwork
+
+  php:
+    image: php:7.4-fpm
+    volumes:
+      - /Users/joaquim/Documents/docker/wiki/nginx:/var/www/html
+    networks:
+      - mynetwork
+
+  mariadb:
+    image: mariadb:latest
+    volumes:
+      - /Users/joaquim/Documents/docker/wiki/mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=MyR00tP@ssw0rd!#$%^&*()
+      - MYSQL_DATABASE=my_database
+      - MYSQL_USER=my_user
+      - MYSQL_PASSWORD=MyUs3rP@ssw0rd!#$%^&*()
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
