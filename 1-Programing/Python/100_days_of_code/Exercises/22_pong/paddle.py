@@ -1,23 +1,25 @@
 from turtle import Turtle
 
-STARTING_POSITION = [(360,-20), (360,0), (360,20)]
-MOVE_DISTANCE = 20
-UP = 90
-DOWN = 270
+VERTICAL = 5
+HORIZONTAL = 1
 
-class Paddle:
+# We create the Paddle class and we inherit the class Turtle, so now we have all the methods and attributes from turtle plus the ones we create for Paddle.
+class Paddle(Turtle):
+    
+# We declare the init method providing the spects that the paddle (turtle) will have and where is gonna be located.
+    def __init__(self,starting_position): # We pass in x and y cordinades
+        super().__init__()  #  --> To use Class Inherit we need to call it like this.
+        self.shape("square")
+        self.color("white")
+        self.penup()
+        self.shapesize(VERTICAL, HORIZONTAL)
+        self.goto(starting_position)  # We pass in the cordinades that we want (left or right paddle). 
 
-    def __init__(self):
-        self.segments = []
-        self.create_paddle()
-        self.head = self.segments[0]
+# Method go_up will move the paddle (turtle) up +20. We retrieve where the y and x cords are, we add +20 to y cord and we move the paddle to the new possition
+    def go_up(self):  # We create the method go_up. ycor and xcor methods just says the current position of the turtle, y = vertical, x = horizontal
+        new_y = self.ycor() + 20  # ycor says the possition where the turtle is and we add +20 pixels to that possition.
+        self.goto(self.xcor(), new_y) # We ask to the turtle to move to the x cordinates (which is always 0) and the y cordinates wich is old ycord +20
 
-# Fuction to create the paddle.We iterate the STARTING_POSITION constant 
-    def create_paddle(self):
-        for position in STARTING_POSITION:
-            new_segment = Turtle(shape="square")
-            new_segment.color("white")
-            new_segment.penup()
-            new_segment.goto(position)
-            self.segments.append(new_segment)
-         
+    def go_down(self):
+        new_y = self.ycor() - 20  
+        self.goto(self.xcor(), new_y)
