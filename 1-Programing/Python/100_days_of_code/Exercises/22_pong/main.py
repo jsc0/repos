@@ -18,6 +18,7 @@ l_paddle = Paddle((-350, 0))
 # We initialize ball from Ball class. Ball inherits methods and attributes from Turtle class.
 ball = Ball()
 
+# Initialize this one. Inherits Turtle class too. It provides color, hides the turtle, penup, position for the two scores, etc.
 scoreboard = Scoreboard()
 
 # Enable screen listening to detect the keys you press and run the methods go_up or go_down if you press the arrows up and down or w or s.
@@ -46,7 +47,7 @@ while game_is_on:
 # Detect when R paddle misses:
     if ball.xcor() > 380:
         ball.reset_position() 
-        scoreboard.l_point()      
+        scoreboard.l_point()       # We call the method l_point which adds +1 scoreboard(self).l_point attribute
         
 # Detect when L paddle misses:
     if ball.xcor() < - 380:
