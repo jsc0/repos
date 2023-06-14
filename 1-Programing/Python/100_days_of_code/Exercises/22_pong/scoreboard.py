@@ -17,7 +17,7 @@ class Scoreboard(Turtle):
 # We create a separated function to update the scoreboard. We could leave all in the constructor method 
 # but by Single Responsibility Principle we should use the constructor to generate the object only 
 # and update_scoreboard to update the score. All methods should be doing only one task by its own 
-# function promotes code organization, reusability, readability, and maintainability
+# function promoting code organization, reusability, readability, and maintainability
     def update_scoreboard(self): 
         self.clear()  # We need to clear the screen everytime, otherwise the numbers will appear on top of the 
         #last one.0, 1, 2, etc on top of each other

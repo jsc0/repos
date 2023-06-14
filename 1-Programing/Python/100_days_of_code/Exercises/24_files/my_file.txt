@@ -1,0 +1,2 @@
+This will delete everything and add this text
+Appending new line to the old text
