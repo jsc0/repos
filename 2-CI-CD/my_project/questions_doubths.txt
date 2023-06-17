@@ -1,0 +1,10 @@
+Talk me about agent, stages, and steps -Half done, repeat and document
+
+What is a code snippet 
+
+Talk me about groovy in Jenkins -Half done, repeat and document
+
+Define Pipeline, is only for Jenkins? - DONE
+
+Get me the Pipeline Concepts - DONE
+
