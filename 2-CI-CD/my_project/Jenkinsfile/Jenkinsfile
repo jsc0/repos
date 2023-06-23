@@ -2,56 +2,28 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the repository
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/jsc0/repos.git']]])
+            }
+        }
+
         stage('Set up virtual environment') {
             steps {
                 // Create a virtual environment named 'venv'
                 sh 'python3 -m venv venv'
                 // Activate the virtual environment
                 sh 'source venv/bin/activate'
-                // Install project dependencies from requirements.txt
-                sh 'pip install -r requirements.txt'
+                // Install Flask
+                sh 'pip install flask'
             }
         }
 
-        stage('Compile assets') {
+        stage('Run application') {
             steps {
-                // Install JavaScript dependencies using npm
-                sh 'npm install'
-                // Build CSS and JavaScript assets
-                sh 'npm run build'
-            }
-        }
-
-        stage('Run tests') {
-            steps {
-                // Execute unit tests using pytest
-                sh 'pytest'
-            }
-        }
-
-        stage('Code quality checks') {
-            steps {
-                // Perform code quality checks using flake8
-                sh 'flake8'
-            }
-        }
-
-        stage('Generate documentation') {
-            steps {
-                // Generate HTML documentation from Sphinx sources
-                sh 'sphinx-build -b html docs/ build/'
-            }
-        }
-
-        stage('Push code to GitHub') {
-            steps {
-                // Configure Git with your GitHub credentials
-                git credentialsId: 'your-credentials-id', url: 'https://github.com/your-username/your-repo.git'
-                // Add all changes and commit
-                sh 'git add .'
-                sh 'git commit -m "Pipeline commit"'
-                // Push changes back to GitHub
-                sh 'git push'
+                // Run the Flask application
+                sh 'python 2-CI-CD/my_project/app.py'
             }
         }
     }
