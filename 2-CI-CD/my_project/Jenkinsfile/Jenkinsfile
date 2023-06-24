@@ -1,29 +1,25 @@
 pipeline {
+
     agent any
 
     stages {
-        stage('Checkout') {
+
+        stage("build") {
+
             steps {
-                // Checkout the repository
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/jsc0/repos.git']]])
+                echo 'POLLA building the application...'
             }
         }
+        stage("test") {
 
-        stage('Set up virtual environment') {
             steps {
-                // Create a virtual environment named 'venv'
-                sh 'python3 -m venv venv'
-                // Activate the virtual environment
-                sh 'source venv/bin/activate'
-                // Install Flask
-                sh 'pip install flask'
+                echo 'TeStInG the application...'
             }
         }
+        stage("deploy") {
 
-        stage('Run application') {
             steps {
-                // Run the Flask application
-                sh 'python 2-CI-CD/my_project/app.py'
+                echo 'Deplooooying the application'
             }
         }
     }

@@ -1,14 +1,11 @@
-def add(*args):
-    sum = 0
-    for n in args:
-        sum += n
-    return sum
-    
-#print(add(3,35,7,3,5,2))
+class Car:
 
-def calculate(n, **kwargs):
-    n += kwargs["add"]
-    n *= kwargs["multiply"]
-    print(n)
+    def __init__(self, **kw):
+        self.make = kw.get("make")
+        self.model = kw.get("model")
+        self.colour = kw.get("colour")
+        self.seats = kw.get("seats")
 
-calculate(2, add=3, multiply=5)
+my_car = Car(make="Nissan", model="Skyline")
+
+print(my_car.make)
