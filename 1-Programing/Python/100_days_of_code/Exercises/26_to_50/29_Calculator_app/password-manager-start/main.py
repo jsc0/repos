@@ -4,24 +4,33 @@ from random import choice, randint, shuffle  # This way we don't have to type ra
 import pyperclip # You need to install this module. Enables you to copy text to the clipboard
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
-#Password Generator Project
+# We remove the previous password generated from the entry box.
+# We generate a random password we copy it to our clipoard
+
 def password_generator():
-    password_entry.delete(0, END)
+    password_entry.delete(0, END) # Every time you call this function will delete the previous password in the entry box
 
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
+# Class inheritance. Select a number between the options given, 8-10 or 2-4 and use it to select randomly a characte
+# of the correspondent list. Example: Select a number between 8 and 10 (let's say 9), then select randomly (choice)
+# a letter from the list. Do it 9 times. So the list "password_letters" in this example will have 9 letters selected
+# and stored in a list.
     password_letters = [choice(letters) for i in range(randint(8, 10))]
     password_symbols = [choice(symbols) for i in range(randint(2, 4))]
     password_numbers = [choice(numbers) for i in range(randint(2, 4))]
 
+# Add all the characters into a single list
     password_list = password_letters + password_symbols + password_numbers
 
+# Shuffle the characters inside the single list
     shuffle(password_list)
-    password = "".join(password_list)
+    password = "".join(password_list) # Because all the characters are in a list, each one of them are separated by
+# comma, join removes the comma and "join" all of them in a single word.
 
-    password_entry.insert(0, password)
+    password_entry.insert(0, password) # Add the password generated into the entry box
     pyperclip.copy(password) # Copies the text (password) to the clipboard, so Crtl + v will have the password.
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
@@ -37,7 +46,7 @@ def save():
 
     else: # If all the entry boxes are filled then the else statement will be executed
         is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email} " # This message box appears when you click "Add" and 
-                            f"\nPassword {password} \nIs it ok to save? ")# asks you if you whant to cancel (not save the pass, False) or ok (save it, True)
+                            f"\nPassword {password} \nIs it ok to save? ")# asks you if you want to cancel (not save the pass, False) or ok (save it, True)
         
         if is_ok: # If you click in OK (True) in the message box this will evaluate to True
             with open("data.txt", mode="a") as file:  # Open data.txt in mode "append" and create the variable "file" to store it's content there.
