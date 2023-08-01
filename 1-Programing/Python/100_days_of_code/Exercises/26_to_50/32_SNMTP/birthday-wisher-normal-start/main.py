@@ -39,7 +39,7 @@ if today_tuple in birthdays_dict: # If the today mondy and day in inside birday_
     
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
-        connection.login(user="test.1980.joder@gmail.com", password="ektjvnfslfpmycpa")
+        connection.login(user="IN_PASS_PLACEr@gmail.com", password="IN_PASS_PLACE")
         connection.sendmail(
             from_addr="test.1980.joder@gmail.com",
             to_addrs=birth_person["email"],
