@@ -1,32 +1,29 @@
-import requests
-from datetime import datetime
 
-MY_LAT = 55.953251
-MY_LONG = -3.188267
-# response = requests.get(url="http://api.open-notify.org/iss-now.json")
-# response.raise_for_status()
+MY_LAT = 55.953251 # Your latitude
+MY_LONG = -3.188267 # Your longitude
 
-# longitude = response.json()["iss_position"]["longitude"]
-# latitude = response.json()["iss_position"]["latitude"]
 
-# iss_position = (longitude, latitude)
 
-# print(iss_position)
 
-parameters = {
-    "lat": MY_LAT,
-    "lng": MY_LONG,
-    "formatted": 0,
-}
 
-response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)
-response.raise_for_status()
-data = response.json()
-sunrise = data["results"]["sunrise"]
-sunset = data["results"]["sunset"]
+iss_latitude = 51.54
+iss_longitude = 1
 
-print(sunrise)
 
-time_now = datetime.now()
+if int(iss_latitude) in range(50, 60) and int(iss_longitude) in range(2, -9, -1):
 
-print(time_now)
+    sunrise = 4
+    sunset = 19
+
+    hour = 21
+    if hour >= sunset or hour <= sunrise:
+        print("Ullet")
+
+    else:
+        print("No ISS")
+
+
+
+
+
+

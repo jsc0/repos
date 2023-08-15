@@ -1,3 +1,5 @@
+CODE_CHANGES = getGitChanges()
+
 pipeline {
 
     agent any
@@ -5,7 +7,11 @@ pipeline {
     stages {
 
         stage("build") {
-
+            when {
+                expression {
+                    BRANCH_NAME == 'dev' && CODE_CHANGES == true
+                }
+            }
             steps {
                 echo 'POLLA building the application...'
             }
@@ -24,5 +30,3 @@ pipeline {
         }
     }
 }
-
-https://www.youtube.com/watch?v=7KCS70sCoK0&ab_channel=TechWorldwithNana
