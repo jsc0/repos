@@ -7,9 +7,9 @@ current_card = {}
 to_learn = {}
 
 try: # words_to_learn.csv doesn't exist. Is created when you press the green button for the fist time, until then 
-    data = pandas.read_csv("data/words_to_learn.csv") # the "try" will fail and will jump to the exeption.
+    data = pandas.read_csv("Solution+-+flash-card-project-end/data/words_to_learn.csv") # the "try" will fail and will jump to the exeption.
 except FileNotFoundError: # This exeption will create a dataframe from the csv, and will be converted into a list.
-    original_data = pandas.read_csv("data/french_words.csv")# Pandas read the .csv
+    original_data = pandas.read_csv("Solution+-+flash-card-project-end/data/french_words.csv")# Pandas read the .csv
     print(f"printing original data {original_data}") # We print it for learning purposes
     to_learn = original_data.to_dict(orient="records")# We convert the dataframe to a list (to_learn)
 else:
