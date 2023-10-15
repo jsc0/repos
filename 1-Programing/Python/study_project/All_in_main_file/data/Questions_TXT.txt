@@ -1,0 +1,31 @@
+Questions:
+
+OPENERS:
+************************ Walk me through your CV:  ***************************
+Brief Overview:
+
+I'm a Desktop Support Technician with a robust foundation in Network and System Administration, complemented by experience as a Datacenter Technician.
+
+I have over 10 years of experience as an IT technician, providing 24/7 1st and 2nd line helpdesk support. I'm used to work in high pressure environments such trading companies (FSB) or ISP's. (Claranet)
+
+I have extensive knowledge in all phases of the hardware deployment life cycle, including planning, procurement, installation, configuration, and support for Windows, Linux and MacOS.
+
+I am skilled at analysing, diagnosing, and resolving computing problems, and I can communicate effectively with people of all IT skill levels.
+
+I'm good documenting tickets and creating manuals and procedures. I understand how important is to communicate clearly with my team and other departments, especially when you do shifts and you have to update your colleagues.
+
+For example, in my previous role at Claranet Spain, we had a critical incident affecting hundreds of customers. While dealing with all the affected parts and providers, I created clear notes in the ticketing system that helped me to do an excellent report after the incident was solved. My managers praised me for the clarity and conciseness of my documentation, as well as my other contributions to resolving the incident.
+
+PROJECTS:
+In my previous role at FSB in London, I independently worked on the Wi-Fi access point project, installing and configuring Cisco Access Points. This improved the security of our network, provided more capabilities, and increased efficiency through its simplified management.
+
+I upgraded the office's PFsense firewall to the latest version, which improved security, added many new features, and made troubleshooting and management easier.
+
+PROFESSIONAL DEVELOPMENT:
+I have earned several vendor certifications, including the AWS Certified Cloud Practitioner and Certified Kubernetes Administrator certifications. I am currently studying Python and CI/CD pipelines with Jenkins to develop my programming and DevOps skills.
+
+************************ Talk me about yourself:  ***************************
+
+
+
+

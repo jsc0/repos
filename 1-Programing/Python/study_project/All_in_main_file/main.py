@@ -51,20 +51,20 @@ window.title("Flashcards")
 window.config(padx=50, pady=50, background=BACKGROUND_COLOR)
 
 # Create the canvas to display flashcards
-canvas = tk.Canvas(height=526, width=800, background=BACKGROUND_COLOR, highlightthickness=0)
+canvas = tk.Canvas(height=650, width=1000, background=BACKGROUND_COLOR, highlightthickness=0)
 canvas.grid(row=0, column=0, columnspan=2)
 
-# Load card images for the front and back of the flashcard
-card_front = tk.PhotoImage(file="All_in_main_file/images/card_front.png")
-card_back = tk.PhotoImage(file="All_in_main_file/images/card_back.png")
+# IMAGES. Load card images for the front and back of the flashcard
+card_front = tk.PhotoImage(file="All_in_main_file/images/card_front_big.png")
+card_back = tk.PhotoImage(file="All_in_main_file/images/card_back_big.png")
 
 # Create the initial flashcard with a question side
 card_background = canvas.create_image(0, 0, anchor="nw", image=card_front)
 card_text = canvas.create_text(
-    400, 200,
+    500, 300, # This centers the text in the flashcard. If you change the numbers the text will appear more on the top/down/left/right
     fill="black",
     text="",
-    width=680,
+    width=900,  # This tells the text to use almost the whole canvas, so won't have too much empty space between the margins and the text.
     font=("Arial", 25)
 )
 
