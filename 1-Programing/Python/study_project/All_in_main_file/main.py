@@ -5,7 +5,7 @@ import random
 BACKGROUND_COLOR = "#B1DDC6"
 
 # This gets you the data of the .csv, it converts it to a dataframe, then converts it to a list of dictionaries
-data = pd.read_csv("All_in_main_file/data/Questions_Answers.csv").to_dict(orient="records")
+data = pd.read_csv("All_in_main_file/data/Questions_Answers_EXCEL.csv").to_dict(orient="records")
 
 current_card = {"index": None, "side": "question"}
 
