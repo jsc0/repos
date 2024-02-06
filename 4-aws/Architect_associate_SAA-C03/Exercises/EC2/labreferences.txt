@@ -1,0 +1,75 @@
+This is the exercise: Using EC2 roles and instance profiles.
+It shows how to create roles, profiles and attach them to ec2 instances via CLI and GUI.
+
+Via CLI you have to do extra steps that via GUI are automatically generated. 
+Steps like creating Trust policies and instance profile. CLI is much more complicated.
+
+The code below is part of the CLI process.
+
+
+Dev s3 bucket name = cfst-3035-b33550f1359d01ceb906daa739fb-s3bucketdev-ukqrwydklxrv
+
+Prod s3 bucket name = cfst-3035-b33550f1359d01ceb906daa739f-s3bucketprod-8oxqknv4qp3z
+
+Engineering s3 bucket name = cfst-3035-b33550f1359d01ceb906-s3bucketengineering-epnpiqypxcic
+
+Secret s3 bucket name = cfst-3035-b33550f1359d01ceb906daa73-s3bucketsecret-ijleuhjcpker
+
+
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+          "Sid": "AllowUserToSeeBucketListInTheConsole",
+          "Action": ["s3:ListAllMyBuckets", "s3:GetBucketLocation"],
+          "Effect": "Allow",
+          "Resource": ["arn:aws:s3:::*"]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:Get*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::cfst-3035-b33550f1359d01ceb906daa739fb-s3bucketdev-ukqrwydklxrv/*",
+                "arn:aws:s3:::cfst-3035-b33550f1359d01ceb906daa739fb-s3bucketdev-ukqrwydklxrv"
+            ]
+        }
+    ]
+}
+
+
+aws iam attach-role-policy --role-name DEV_ROLE --policy-arn "arn:aws:iam::319560258433:policy/DevS3ReadAccess"
+
+
+i-0dcc1065d0e2ff144
+
+aws ec2 associate-iam-instance-profile --instance-id i-0dcc1065d0e2ff144 --iam-instance-profile Name="DEV_PROFILE"
+
+aws ec2 describe-instances --instance-ids i-0dcc1065d0e2ff144
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+          "Sid": "AllowUserToSeeBucketListInTheConsole",
+          "Action": ["s3:ListAllMyBuckets", "s3:GetBucketLocation"],
+          "Effect": "Allow",
+          "Resource": ["arn:aws:s3:::*"]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:Get*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::cfst-3035-b33550f1359d01ceb906daa739f-s3bucketprod-8oxqknv4qp3z/*",
+                "arn:aws:s3:::cfst-3035-b33550f1359d01ceb906daa739f-s3bucketprod-8oxqknv4qp3z"
+            ]
+        }
+    ]
+}
+
