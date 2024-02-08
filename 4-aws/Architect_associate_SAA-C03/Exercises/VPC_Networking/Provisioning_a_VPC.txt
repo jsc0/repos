@@ -1,0 +1,16 @@
+
+We built a custom VPC in us-east-1 for network: 10.0.0.0/16
+As soon as we created the VPC it automatically created:
+	A Route Table
+	A Network ACL
+	A Security Group
+We created the subnets (10.0.1.0/24, 10.0.2.0/24) adding them to the new VPC.
+We enable auto-assign public IP for 10.0.1.0/24 
+We then created the Internet Gateway and attached it to the new VPC.
+We created another Route Tables pointing to 0.0.0.0/0 and to the Internet Gateway and has been associated to the public network 10.0.1.0/24.
+We added another Security Group, WebDMZ, with incoming 0.0.0.0/0 to http.
+We deployed a Webserver (adding it in the public subnet), checking that we can see the hello world website created on it via browser using the public IP
+We deployed a Database server (adding it in the private subnet), creating a new security group allowing ssh from WebDMZ security group (the webserver)
+From the webserver we’ve sshed to the database server successfully after copying our private key in the webserver.
+We can see that the database server cannot be updated because has no access to internet.
+Create a NAT Gateway.
