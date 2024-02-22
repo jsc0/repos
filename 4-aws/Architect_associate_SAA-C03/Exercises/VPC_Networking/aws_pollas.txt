@@ -1,0 +1,87 @@
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 10.0.0.136:/ /efs
+
+
+
+  GNU nano 4.8                                                                              /etc/fstab  
+                                                                            ModifiedEL=cloudimg-rootfs   /        ext4   defaults,discard        0 0
+10.0.0.89:/            /data     nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 0 0
+
+
+
+
+10.0.0.136:/            /data    nfs4   nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 0 0
+
+
+
+
+MOUNT BY DNS:
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-09c3a1ed8ba7b460f.efs.us-east-1.amazonaws.com:/ /efs
+
+Increasing Read Performance with Read Replicas
+
+
+#!/bin/bash
+yum -y update
+yum -y install httpd
+systemctl start httpd  
+systemctl enable httpd
+cd /var/www/html
+echo "<html><body><h1>Hello World</h1></body></html>" > index.html
+
+
+#!/bin/bash
+sudo apt update -y
+sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip perl mysql-server apache2 libapache2-mod-php php-mysql -y
+wget https://github.com/ACloudGuru-Resources/course-aws-certified-solutions-architect-associate/raw/main/lab/5/wordpress.tar.gz
+tar zxvf wordpress.tar.gz
+cd wordpress
+wget https://raw.githubusercontent.com/ACloudGuru-Resources/course-aws-certified-solutions-architect-associate/main/lab/5/000-default.conf
+cp wp-config-sample.php wp-config.php
+perl -pi -e "s/database_name_here/wordpress/g" wp-config.php
+perl -pi -e "s/username_here/wordpress/g" wp-config.php
+perl -pi -e "s/password_here/wordpress/g" wp-config.php
+perl -i -pe'
+  BEGIN {
+    @chars = ("a" .. "z", "A" .. "Z", 0 .. 9);
+    push @chars, split //, "!@#$%^&*()-_ []{}<>~\`+=,.;:/?|";
+    sub salt { join "", map $chars[ rand @chars ], 1 .. 64 }
+  }
+  s/put your unique phrase here/salt()/ge
+' wp-config.php
+mkdir wp-content/uploads
+chmod 775 wp-content/uploads
+mv 000-default.conf /etc/apache2/sites-enabled/
+mv /wordpress /var/www/
+apache2ctl restart
+
+***************************************************************************
+This is a simple website with black as background colour and the letters in 
+Electric green.
+
+<html><center><body bgcolor="black" text="#39ff14" style="font-family: Arial"><h1>Load Balancer Demo</h1><h3>Availability Zone: 
+us-east-1c</h3> <h3>Instance Id: 
+i-07f6c683cbf5bb5e5</h3> <h3>Public IP: 
+100.24.17.22</h3> <h3>Local IP: 
+10.0.2.100</h3></html> 
+
+
+* Ideas to introduce in the CV/CL:
+A link to a cool website where I show cool tech things I did.
+	Think about options to do here:
+	- Something with K8s
+	- Something with code
+	- Study how to create an easy link to access the website.
+	- Create a SandBox
+
+	- Do something like the labs in acloudguru, granting access to the
+	recruiter to a lab to try different things.Study how to secure this
+	have in mind that the lab can be accessed by a non-tech people so think 
+	about creating a non-tech part and a tech one in the same web.
+
+* A paragraph mentioning something notable. Think about what could be.
+
+	
+s3://cfst-3029-f77e7ae26ecc9cdcde6708-vpcflowlogsbucket-d1ejz2m8dd7x/AWSLogs/190603695631/vpcflowlogs/us-east-1/2024/02/21/
+
+
+
