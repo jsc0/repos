@@ -84,4 +84,11 @@ A link to a cool website where I show cool tech things I did.
 s3://cfst-3029-f77e7ae26ecc9cdcde6708-vpcflowlogsbucket-d1ejz2m8dd7x/AWSLogs/190603695631/vpcflowlogs/us-east-1/2024/02/21/
 
 
+AWS Fundamentals
+
+
+
+
+Liberation Serif
+
 
