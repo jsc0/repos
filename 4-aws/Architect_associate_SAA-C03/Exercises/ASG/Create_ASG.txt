@@ -1,0 +1,31 @@
+Steps to create an Auto Scaling Group (In order of aparence): 
+What do you need to create an ASG.
+
+* Launch Template
+* Network (VPC, AZs). Better to do it here in ASG than in the Launch Template.
+* Load Balancer: Yes/No/Create it
+* Size: Max/Min/Desirable
+	- Automatic Scaling (Optional)
+		• No Scaling Policies
+		• Target Tracking scaling policy (after creating ASG, you can select
+		the other Scaling policies,Predictive and Schedule).
+* SNS (optional)
+* Done.
+
+----- Auto Scaling Policies: ----- 
+* Dynamic scaling policies:
+	- Target Tracking scaling policy: You set one metric, like CPU 50%, and it will scale up 					  or down as much as necessary to achieve it.
+		• Metric: CPU / Network In or Out / Load Balancer.
+
+	- Simple Scaling: One metric that triggers one action, just one single metric/action.
+		• Metrics: CloudWatch Alarm.
+
+	- Step Scaling: Exactly the same than Simple scaling, one metric / one action but 
+			you can add more metric/action as you want.
+		• Metrics: CloudWatch Alarm.
+
+* Predictive Scaling Policies: Using machine learning, the instances are scaled 
+on a forecast based in the past.
+	- Metrics: CPU, Network In or Out, Load Balancer and custom metrics.
+	
+* Scheduled actions: You schedule when to scale out or in.
